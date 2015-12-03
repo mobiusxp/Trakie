@@ -15,32 +15,126 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XC6-nM-qFV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="flb-UT-zt6" detailTextLabel="bkC-AI-vKt" style="IBUITableViewCellStyleSubtitle" id="gkk-um-YPx">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XC6-nM-qFV" id="xZs-I3-IUc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gkk-um-YPx" id="dGA-Iu-cKy">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="flb-UT-zt6">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bkC-AI-vKt">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="zj4-40-amA" id="Xv2-Xu-nRM"/>
                             <outlet property="delegate" destination="zj4-40-amA" id="cvG-4t-fSe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Packages" id="GBH-8W-zjw"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="EuI-Zq-f5d"/>
+                        <barButtonItem systemItem="add" id="byj-dt-ppY">
+                            <connections>
+                                <segue destination="bEX-WE-9lh" kind="show" id="E48-Mj-YVG"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Packages" id="GBH-8W-zjw">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="LEl-BN-On5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k6P-YV-Spa">
+                                <rect key="frame" x="447" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <connections>
+                                <segue destination="I4P-0U-ttY" kind="show" id="CTb-ok-R3U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMS-JL-7vL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="707" y="169"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="pIh-Kb-alK">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="I4P-0U-ttY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sbp-0J-j5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="169"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VdV-wD-x5T">
+            <objects>
+                <viewController id="Inl-0e-Zj0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lq3-ME-Hj8"/>
+                        <viewControllerLayoutGuide type="bottom" id="v9z-qf-eTl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QQ5-C6-aoQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRa-zF-UFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2137" y="-48"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ilG-PK-1iu">
+            <objects>
+                <viewController id="bEX-WE-9lh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wgf-tt-7b7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gf7-Y3-Vr0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="48i-RB-bSC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IY0-o7-7ul">
+                                <rect key="frame" x="272" y="99" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cu5-Aw-BeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="1075"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="89J-I0-D34">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EE7-bn-aXX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="EE7-bn-aXX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3M0-JO-ISh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -48,6 +142,11 @@
                         <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="amR-7K-JvE">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </toolbar>
                     <connections>
                         <segue destination="zj4-40-amA" kind="relationship" relationship="rootViewController" id="3Zt-T0-Z1G"/>
                     </connections>
