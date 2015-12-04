@@ -8,7 +8,7 @@
         <!--Packages-->
         <scene sceneID="4O7-kC-41H">
             <objects>
-                <tableViewController id="zj4-40-amA" customClass="PackageTableController" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zj4-40-amA" customClass="PackageTableVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sKX-aV-Mgw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,6 +42,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="4uO-cb-Vd6" kind="show" id="KVP-nD-XXn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -54,7 +57,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="EuI-Zq-f5d"/>
                         <barButtonItem systemItem="add" id="byj-dt-ppY">
                             <connections>
-                                <segue destination="bEX-WE-9lh" kind="show" id="E48-Mj-YVG"/>
+                                <segue destination="bEX-WE-9lh" kind="show" id="gpx-Ea-T1S"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -65,10 +68,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="4uO-cb-Vd6" kind="show" id="5sL-fa-ss0"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <segue destination="I4P-0U-ttY" kind="show" id="CTb-ok-R3U"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -76,37 +79,72 @@
             </objects>
             <point key="canvasLocation" x="707" y="169"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="pIh-Kb-alK">
+        <!--Title-->
+        <scene sceneID="Ziv-g6-BrB">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="I4P-0U-ttY" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sbp-0J-j5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1428" y="169"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="VdV-wD-x5T">
-            <objects>
-                <viewController id="Inl-0e-Zj0" sceneMemberID="viewController">
+                <viewController id="4uO-cb-Vd6" customClass="InfoSumVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Lq3-ME-Hj8"/>
-                        <viewControllerLayoutGuide type="bottom" id="v9z-qf-eTl"/>
+                        <viewControllerLayoutGuide type="top" id="wgs-QI-6WH"/>
+                        <viewControllerLayoutGuide type="bottom" id="uxR-So-GPL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QQ5-C6-aoQ">
+                    <view key="view" contentMode="scaleToFill" id="TPx-Gq-Ryy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="action" id="nwT-7c-w95"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ghZ-Bm-Zfv"/>
+                        <barButtonItem systemItem="trash" id="UHi-IK-LJC"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="ORQ-qf-wcR">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="AK8-ms-fMc">
+                            <connections>
+                                <segue destination="b3r-sE-9yJ" kind="show" id="XX5-FU-Otv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uRa-zF-UFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDW-V5-jWT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2137" y="-48"/>
+            <point key="canvasLocation" x="1408" y="169"/>
         </scene>
-        <!--View Controller-->
+        <!--Info DetVC-->
+        <scene sceneID="Pbz-uQ-cHU">
+            <objects>
+                <tableViewController id="b3r-sE-9yJ" customClass="InfoDetVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2ca-qm-d2d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RPq-Xy-Gph">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RPq-Xy-Gph" id="2dg-xn-iyR">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b3r-sE-9yJ" id="pDR-l5-qSd"/>
+                            <outlet property="delegate" destination="b3r-sE-9yJ" id="h6n-vK-im2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMw-bT-phl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2151" y="169"/>
+        </scene>
+        <!--Add PackageVC-->
         <scene sceneID="ilG-PK-1iu">
             <objects>
-                <viewController id="bEX-WE-9lh" sceneMemberID="viewController">
+                <viewController id="bEX-WE-9lh" customClass="AddPackageVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wgf-tt-7b7"/>
                         <viewControllerLayoutGuide type="bottom" id="Gf7-Y3-Vr0"/>
@@ -156,4 +194,7 @@
             <point key="canvasLocation" x="-105" y="169"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KVP-nD-XXn"/>
+    </inferredMetricsTieBreakers>
 </document>

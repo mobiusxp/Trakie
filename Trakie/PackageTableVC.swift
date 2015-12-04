@@ -1,14 +1,14 @@
 //
-//  PackageTableController.swift
+//  PackageTableVC.swift
 //  Trakie
 //
-//  Created by Khoa Nguyen on 12/2/15.
+//  Created by Khoa Nguyen on 12/3/15.
 //  Copyright © 2015 Khoa Nguyen. All rights reserved.
 //
 
 import UIKit
 
-class PackageTableController: UITableViewController {
+class PackageTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

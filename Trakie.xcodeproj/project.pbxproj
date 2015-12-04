@@ -12,8 +12,11 @@
 		738691D11C0F864800F3A3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691CF1C0F864800F3A3A1 /* Main.storyboard */; };
 		738691D31C0F864800F3A3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 738691D21C0F864800F3A3A1 /* Assets.xcassets */; };
 		738691D61C0F864800F3A3A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691D41C0F864800F3A3A1 /* LaunchScreen.storyboard */; };
-		738691E11C0F9F0300F3A3A1 /* PackageTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691E01C0F9F0300F3A3A1 /* PackageTableController.swift */; };
 		738691E31C0FA1C200F3A3A1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 738691E21C0FA1C200F3A3A1 /* .gitignore */; };
+		73ACF9A31C11541600C6787A /* InfoDetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ACF9A21C11541600C6787A /* InfoDetVC.swift */; };
+		73B0A0C11C1094D500C1AA45 /* AddPackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0A0C01C1094D500C1AA45 /* AddPackageVC.swift */; };
+		73B0A0C31C10953800C1AA45 /* PackageTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */; };
+		73F216BA1C1099B000C0911D /* InfoSumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F216B91C1099B000C0911D /* InfoSumVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +27,11 @@
 		738691D21C0F864800F3A3A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		738691D51C0F864800F3A3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		738691D71C0F864800F3A3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		738691E01C0F9F0300F3A3A1 /* PackageTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableController.swift; sourceTree = "<group>"; };
 		738691E21C0FA1C200F3A3A1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		73ACF9A21C11541600C6787A /* InfoDetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoDetVC.swift; sourceTree = "<group>"; };
+		73B0A0C01C1094D500C1AA45 /* AddPackageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPackageVC.swift; sourceTree = "<group>"; };
+		73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableVC.swift; sourceTree = "<group>"; };
+		73F216B91C1099B000C0911D /* InfoSumVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSumVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,10 @@
 		738691DD1C0F86B700F3A3A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				738691E01C0F9F0300F3A3A1 /* PackageTableController.swift */,
+				73B0A0C01C1094D500C1AA45 /* AddPackageVC.swift */,
+				73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */,
+				73F216B91C1099B000C0911D /* InfoSumVC.swift */,
+				73ACF9A21C11541600C6787A /* InfoDetVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -166,9 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				738691E11C0F9F0300F3A3A1 /* PackageTableController.swift in Sources */,
+				73ACF9A31C11541600C6787A /* InfoDetVC.swift in Sources */,
+				73B0A0C31C10953800C1AA45 /* PackageTableVC.swift in Sources */,
 				738691CE1C0F864800F3A3A1 /* ViewController.swift in Sources */,
 				738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */,
+				73F216BA1C1099B000C0911D /* InfoSumVC.swift in Sources */,
+				73B0A0C11C1094D500C1AA45 /* AddPackageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +330,7 @@
 				738691DC1C0F864800F3A3A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
