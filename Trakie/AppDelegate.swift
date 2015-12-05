@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var packages:[Package]?;
     var dm:DataManager?;
     var packageController:PackageTableVC?;
 
@@ -19,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         dm = DataManager();
         packageController = (self.window?.rootViewController as! UINavigationController).topViewController as? PackageTableVC;
-        dm!.testUSPS();
+        packages = [];
+        packages!.append(dm!.testUSPS());
+        packageController!.packages = packages!;
         // Override point for customization after application launch.
         return true
     }

@@ -10,4 +10,13 @@ import Foundation
 
 class RetrieverFactory{
     
+    func getRetriever(type:ServiceType) -> Retriever{
+        switch type{
+        case ServiceType.Local:
+            return LocalRetriever();
+        case ServiceType.USPS:
+            return USPSRetriever();
+        }
+    }
+    
 }

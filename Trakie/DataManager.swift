@@ -14,20 +14,41 @@ import Foundation
 
 class DataManager{
     
+    //
     func getData(input:String, source:ServiceType) -> Package?{
+        let retriever = RetrieverFactory().getRetriever(source);
+        /*
+        do{
+            try retriever.getData(input);
+        }catch TrakieError.RetrieverError{
+            print("Error cat.jpg");
+        }
+        */
         
         return nil;
     }
     
-    func getAllData(source:ServiceType)->[Package]{
-        
+    // Load the user's saved packages
+    func loadUserList() -> [Package]{
         return [];
     }
     
-    func testUSPS(){
+    
+    func testUSPS() -> Package{
         let test = USPSRetriever();
-        var lol = test.getData("9374889949010715350525");
-        var lol2 = test.getData("starbucks");
+        let testParse = USPSParser();
+        do{
+          let lol = try test.getData("9374889949010715350525");
+            var testPkg = testParse.parse(lol);
+            return testPkg;
+            
+        }catch TrakieError.ParserError{
+            print("error cat.jpg");
+        }catch{
+            print("error 2");
+        }
+        
+        return Package(trackingNumber: "lol", svcType: ServiceType.Local);
     }
     
 }

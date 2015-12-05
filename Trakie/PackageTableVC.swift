@@ -50,7 +50,7 @@ class PackageTableVC: UITableViewController {
         
         // Configure the cell...
         cell.textLabel?.text = packages[indexPath.row].name;
-        cell.detailTextLabel?.text = "No status available.";
+        cell.detailTextLabel?.text = packages[indexPath.row].events![0].Event;
         
 
         return cell

@@ -21,6 +21,9 @@
 		73064B211C1274BE00CDD480 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B201C1274BE00CDD480 /* Validator.swift */; };
 		73064B231C1274CC00CDD480 /* USPSValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B221C1274CC00CDD480 /* USPSValidator.swift */; };
 		73064B251C12A2E300CDD480 /* TrakieErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B241C12A2E300CDD480 /* TrakieErrors.swift */; };
+		73064B271C12B83C00CDD480 /* SampleResponses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 73064B261C12B83C00CDD480 /* SampleResponses.txt */; };
+		73064B2B1C12C0E300CDD480 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B2A1C12C0E300CDD480 /* SWXMLHash.swift */; };
+		73064B2D1C12C40D00CDD480 /* TrackingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B2C1C12C40D00CDD480 /* TrackingEvent.swift */; };
 		738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CB1C0F864800F3A3A1 /* AppDelegate.swift */; };
 		738691CE1C0F864800F3A3A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CD1C0F864800F3A3A1 /* ViewController.swift */; };
 		738691D11C0F864800F3A3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691CF1C0F864800F3A3A1 /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 		73064B201C1274BE00CDD480 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		73064B221C1274CC00CDD480 /* USPSValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USPSValidator.swift; sourceTree = "<group>"; };
 		73064B241C12A2E300CDD480 /* TrakieErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrakieErrors.swift; sourceTree = "<group>"; };
+		73064B261C12B83C00CDD480 /* SampleResponses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SampleResponses.txt; sourceTree = "<group>"; };
+		73064B2A1C12C0E300CDD480 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		73064B2C1C12C40D00CDD480 /* TrackingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingEvent.swift; sourceTree = "<group>"; };
 		738691C81C0F864800F3A3A1 /* Trakie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trakie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738691CB1C0F864800F3A3A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738691CD1C0F864800F3A3A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 		738691BF1C0F864800F3A3A1 = {
 			isa = PBXGroup;
 			children = (
+				73064B261C12B83C00CDD480 /* SampleResponses.txt */,
 				738691E21C0FA1C200F3A3A1 /* .gitignore */,
 				738691CA1C0F864800F3A3A1 /* Trakie */,
 				738691C91C0F864800F3A3A1 /* Products */,
@@ -153,6 +160,7 @@
 				738691D21C0F864800F3A3A1 /* Assets.xcassets */,
 				738691D41C0F864800F3A3A1 /* LaunchScreen.storyboard */,
 				738691D71C0F864800F3A3A1 /* Info.plist */,
+				73064B2A1C12C0E300CDD480 /* SWXMLHash.swift */,
 			);
 			path = Trakie;
 			sourceTree = "<group>";
@@ -174,6 +182,7 @@
 				73064B011C11E59400CDD480 /* Package.swift */,
 				73064B1D1C12732800CDD480 /* ServiceType.swift */,
 				73064B241C12A2E300CDD480 /* TrakieErrors.swift */,
+				73064B2C1C12C40D00CDD480 /* TrackingEvent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,6 +254,7 @@
 			files = (
 				738691E31C0FA1C200F3A3A1 /* .gitignore in Resources */,
 				738691D61C0F864800F3A3A1 /* LaunchScreen.storyboard in Resources */,
+				73064B271C12B83C00CDD480 /* SampleResponses.txt in Resources */,
 				738691D31C0F864800F3A3A1 /* Assets.xcassets in Resources */,
 				738691D11C0F864800F3A3A1 /* Main.storyboard in Resources */,
 			);
@@ -262,6 +272,7 @@
 				73064B251C12A2E300CDD480 /* TrakieErrors.swift in Sources */,
 				73064B1C1C12464E00CDD480 /* RetrieverFactory.swift in Sources */,
 				73064B0F1C12114100CDD480 /* LocalRetriever.swift in Sources */,
+				73064B2D1C12C40D00CDD480 /* TrackingEvent.swift in Sources */,
 				73ACF9A31C11541600C6787A /* InfoDetVC.swift in Sources */,
 				73064B231C1274CC00CDD480 /* USPSValidator.swift in Sources */,
 				73064B071C12100F00CDD480 /* DataManager.swift in Sources */,
@@ -273,6 +284,7 @@
 				738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */,
 				73064B141C1234EC00CDD480 /* Parser.swift in Sources */,
 				73064B181C12426400CDD480 /* LocalParser.swift in Sources */,
+				73064B2B1C12C0E300CDD480 /* SWXMLHash.swift in Sources */,
 				73064B1A1C12463C00CDD480 /* ParserFactory.swift in Sources */,
 				73064B111C1234AF00CDD480 /* Retriever.swift in Sources */,
 				73F216BA1C1099B000C0911D /* InfoSumVC.swift in Sources */,

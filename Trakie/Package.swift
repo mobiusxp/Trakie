@@ -12,18 +12,20 @@ class Package{
     let trackingNumber:String;
     var name:String;
     var notes:String?;
-    var status:[(location: String, msg: String)] = [];
+    var events:[TrackingEvent]?;
+    let svcType:ServiceType;
     
-    init(trackingNumber:String){
+    init(trackingNumber:String, svcType:ServiceType){
         self.trackingNumber = trackingNumber;
         self.name = trackingNumber;
+        self.svcType = svcType;
     }
     
-    convenience init(trackingNumber:String, name:String, notes:String, status:[(location:String,msg:String)]){
-        self.init(trackingNumber: trackingNumber);
+    convenience init(svcType:ServiceType, trackingNumber:String, name:String, notes:String, events:[TrackingEvent]){
+        self.init(trackingNumber: trackingNumber, svcType: svcType);
         self.name = name;
         self.notes = notes;
-        self.status = status;
+        self.events = events;
     }
     
 

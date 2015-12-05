@@ -10,17 +10,72 @@
 
 import Foundation
 
-class USPSParser: NSObject, Parser, NSXMLParserDelegate{
+class USPSParser: Parser{
     
-    var XMLParser:NSXMLParser;
+    // var XMLParser:NSXMLParser!;
+    var parsedPackage:Package?;
     
-    override init(){
-        XMLParser = NSXMLParser();
-        super.init();
-        XMLParser.delegate = self;
-    }
     
     func parse(input:String) -> Package {
-        return Package(trackingNumber: "a");
+        // let inputNSData = (input as NSString).dataUsingEncoding(NSUTF8StringEncoding);
+        let parsed = SWXMLHash.parse(input);
+        makePackage(parsed["TrackResponse"]["TrackInfo"].element!.attributes["ID"]!);
+        addEvents(parsed["TrackResponse"]["TrackInfo"]["TrackSummary"], details: parsed["TrackResponse"]["TrackInfo"]["TrackDetail"] );
+        
+        // XMLParser = NSXMLParser(data: inputNSData!);
+        // XMLParser.delegate = self;
+        // XMLParser.parse();
+        
+        
+        return parsedPackage!;
     }
+    
+    // Take in the tracking number and create the package
+    func makePackage(trackingNumber:String){
+        parsedPackage = Package(trackingNumber: trackingNumber, svcType: ServiceType.USPS);
+    }
+    
+    // Add the events into the tracking object
+    func addEvents(summary:XMLIndexer, details:XMLIndexer){
+        var events:[TrackingEvent] = [];
+        events.append(makeEvent(summary));
+        
+        for event in details{
+            events.append(makeEvent(event));
+        }
+        
+        parsedPackage!.events = events;
+    }
+    
+    func makeEvent(event:XMLIndexer) -> TrackingEvent{
+        let trackEvent = TrackingEvent(EventDate: event["EventDate"].element!.text!, Event: event["Event"].element!.text!);
+        
+        if(event["EventTime"].element!.text != nil){
+            trackEvent.EventTime = event["EventTime"].element!.text
+        }else{
+            trackEvent.EventTime = "N/A";
+        }
+        
+        if(event["EventCity"].element!.text != nil){
+            trackEvent.EventCity = event["EventCity"].element!.text
+        }else{
+            trackEvent.EventCity = "N/A";
+        }
+        
+        if(event["EventState"].element!.text != nil){
+            trackEvent.EventState = event["EventState"].element!.text
+        }else{
+            trackEvent.EventState = "N/A";
+        }
+        
+        if(event["EventZIPCode"].element!.text != nil){
+            trackEvent.EventZip = event["EventZIPCode"].element!.text
+        }else{
+            trackEvent.EventZip = "N/A";
+        }
+        
+        return trackEvent
+    }
+    
+    
 }

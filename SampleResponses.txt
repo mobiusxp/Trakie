@@ -1,0 +1,164 @@
+== USPS ==
+
+-- Successful Call
+<?xml version="1.0" encoding="UTF-8"?>
+<TrackResponse>
+   <TrackInfo ID="9374889949010715350525">
+      <TrackSummary>
+         <EventTime>5:38 pm</EventTime>
+         <EventDate>December 4, 2015</EventDate>
+         <Event>Delivered, In/At Mailbox</Event>
+         <EventCity>BROOKLYN</EventCity>
+         <EventState>NY</EventState>
+         <EventZIPCode>11222</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+         <DeliveryAttributeCode>01</DeliveryAttributeCode>
+      </TrackSummary>
+      <TrackDetail>
+         <EventTime>10:35 am</EventTime>
+         <EventDate>December 4, 2015</EventDate>
+         <Event>Out for Delivery</Event>
+         <EventCity>BROOKLYN</EventCity>
+         <EventState>NY</EventState>
+         <EventZIPCode>11222</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>10:25 am</EventTime>
+         <EventDate>December 4, 2015</EventDate>
+         <Event>Sorting Complete</Event>
+         <EventCity>BROOKLYN</EventCity>
+         <EventState>NY</EventState>
+         <EventZIPCode>11222</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>6:54 am</EventTime>
+         <EventDate>December 4, 2015</EventDate>
+         <Event>Arrived at Post Office</Event>
+         <EventCity>BROOKLYN</EventCity>
+         <EventState>NY</EventState>
+         <EventZIPCode>11222</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>5:39 am</EventTime>
+         <EventDate>December 4, 2015</EventDate>
+         <Event>Accepted at USPS Destination Sort Facility</Event>
+         <EventCity>BROOKLYN</EventCity>
+         <EventState>NY</EventState>
+         <EventZIPCode>11222</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>4:13 am</EventTime>
+         <EventDate>December 4, 2015</EventDate>
+         <Event>Acceptance</Event>
+         <EventCity>BROOKLYN</EventCity>
+         <EventState>NY</EventState>
+         <EventZIPCode>11222</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime />
+         <EventDate>December 4, 2015</EventDate>
+         <Event>Pre-Shipment Info Sent to USPS</Event>
+         <EventCity />
+         <EventState />
+         <EventZIPCode />
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>10:33 pm</EventTime>
+         <EventDate>December 3, 2015</EventDate>
+         <Event>Departed Shipping Partner Facility</Event>
+         <EventCity>AVENEL</EventCity>
+         <EventState>NJ</EventState>
+         <EventZIPCode>07001</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>8:11 am</EventTime>
+         <EventDate>December 3, 2015</EventDate>
+         <Event>Departed Shipping Partner Facility</Event>
+         <EventCity>BALTIMORE</EventCity>
+         <EventState>MD</EventState>
+         <EventZIPCode>21224</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>8:36 pm</EventTime>
+         <EventDate>December 2, 2015</EventDate>
+         <Event>Picked Up by Shipping Partner</Event>
+         <EventCity>BALTIMORE</EventCity>
+         <EventState>MD</EventState>
+         <EventZIPCode>21224</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+      <TrackDetail>
+         <EventTime>8:35 pm</EventTime>
+         <EventDate>December 2, 2015</EventDate>
+         <Event>Picked Up by Shipping Partner</Event>
+         <EventCity>BALTIMORE</EventCity>
+         <EventState>MD</EventState>
+         <EventZIPCode>21224</EventZIPCode>
+         <EventCountry />
+         <FirmName />
+         <Name />
+         <AuthorizedAgent>false</AuthorizedAgent>
+      </TrackDetail>
+   </TrackInfo>
+</TrackResponse>
+
+
+-- Invalid Tracking number:
+Bad tracking number:
+<?xml version="1.0" encoding="UTF-8"?>
+<TrackResponse>
+   <TrackInfo ID="9374889942010715350525">
+      <Error>
+         <Number>-2147219302</Number>
+         <Description>The Postal Service could not locate the tracking information for your request. Please verify your tracking number and try again later.</Description>
+         <HelpFile />
+         <HelpContext />
+      </Error>
+   </TrackInfo>
+</TrackResponse>
+
+Bad login:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+   <Number>80040B1A</Number>
+   <Description>Authorization failure. Perhaps username and/or password is incorrect.</Description>
+   <Source>USPSCOM::DoAuth</Source>
+</Error>

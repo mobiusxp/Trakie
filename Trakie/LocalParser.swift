@@ -11,7 +11,7 @@ import Foundation
 class LocalParser:Parser{
     
     func parse(input:String) -> Package {
-        return Package(trackingNumber: "a");
+        return Package(trackingNumber: "a", svcType: ServiceType.Local);
     }
     
 }
