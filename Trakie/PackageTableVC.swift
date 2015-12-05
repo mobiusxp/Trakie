@@ -9,6 +9,9 @@
 import UIKit
 
 class PackageTableVC: UITableViewController {
+    
+    @IBOutlet var packageTable: UITableView!
+    var packages:[Package] = [];
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,10 @@ class PackageTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    func test(){
+        print("test123");
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,23 +36,26 @@ class PackageTableVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return packages.count;
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("packageCell", forIndexPath: indexPath)
+        
         // Configure the cell...
+        cell.textLabel?.text = packages[indexPath.row].name;
+        cell.detailTextLabel?.text = "No status available.";
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

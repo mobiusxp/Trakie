@@ -20,6 +20,7 @@
 		73064B1E1C12732800CDD480 /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B1D1C12732800CDD480 /* ServiceType.swift */; };
 		73064B211C1274BE00CDD480 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B201C1274BE00CDD480 /* Validator.swift */; };
 		73064B231C1274CC00CDD480 /* USPSValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B221C1274CC00CDD480 /* USPSValidator.swift */; };
+		73064B251C12A2E300CDD480 /* TrakieErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B241C12A2E300CDD480 /* TrakieErrors.swift */; };
 		738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CB1C0F864800F3A3A1 /* AppDelegate.swift */; };
 		738691CE1C0F864800F3A3A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CD1C0F864800F3A3A1 /* ViewController.swift */; };
 		738691D11C0F864800F3A3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691CF1C0F864800F3A3A1 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		73064B1D1C12732800CDD480 /* ServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
 		73064B201C1274BE00CDD480 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		73064B221C1274CC00CDD480 /* USPSValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USPSValidator.swift; sourceTree = "<group>"; };
+		73064B241C12A2E300CDD480 /* TrakieErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrakieErrors.swift; sourceTree = "<group>"; };
 		738691C81C0F864800F3A3A1 /* Trakie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trakie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738691CB1C0F864800F3A3A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738691CD1C0F864800F3A3A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				73064B011C11E59400CDD480 /* Package.swift */,
 				73064B1D1C12732800CDD480 /* ServiceType.swift */,
+				73064B241C12A2E300CDD480 /* TrakieErrors.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				73064B161C12423800CDD480 /* USPSParser.swift in Sources */,
 				73064B1E1C12732800CDD480 /* ServiceType.swift in Sources */,
+				73064B251C12A2E300CDD480 /* TrakieErrors.swift in Sources */,
 				73064B1C1C12464E00CDD480 /* RetrieverFactory.swift in Sources */,
 				73064B0F1C12114100CDD480 /* LocalRetriever.swift in Sources */,
 				73ACF9A31C11541600C6787A /* InfoDetVC.swift in Sources */,

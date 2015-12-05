@@ -24,5 +24,10 @@ class DataManager{
         return [];
     }
     
+    func testUSPS(){
+        let test = USPSRetriever();
+        var lol = test.getData("9374889949010715350525");
+        var lol2 = test.getData("starbucks");
+    }
     
 }

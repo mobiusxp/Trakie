@@ -10,5 +10,5 @@ import Foundation
 
 protocol Parser{
     // Protocol for parsers, parse is for single tracking numbers
-    func parse(input:String) -> Package;
+    func parse(input:String) throws -> Package;
 }

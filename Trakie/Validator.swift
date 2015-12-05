@@ -10,6 +10,6 @@ import Foundation
 
 protocol Validator{
     
-    func validate(trackingNumber:String) -> Bool; 
+    func validate(trackingNumber:String) throws -> Bool;
     
 }

@@ -13,11 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var dm:DataManager?;
+    var packageController:PackageTableVC?;
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         dm = DataManager();
-        
+        packageController = (self.window?.rootViewController as! UINavigationController).topViewController as? PackageTableVC;
+        dm!.testUSPS();
         // Override point for customization after application launch.
         return true
     }

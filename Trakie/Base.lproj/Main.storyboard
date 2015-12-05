@@ -28,7 +28,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="flb-UT-zt6" detailTextLabel="bkC-AI-vKt" style="IBUITableViewCellStyleSubtitle" id="gkk-um-YPx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="packageCell" textLabel="flb-UT-zt6" detailTextLabel="bkC-AI-vKt" style="IBUITableViewCellStyleSubtitle" id="gkk-um-YPx">
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gkk-um-YPx" id="dGA-Iu-cKy">
@@ -88,7 +88,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="packageTable" destination="sKX-aV-Mgw" id="NQo-QS-5y7"/>
                         <outlet property="searchDisplayController" destination="q7p-nn-LR9" id="oXy-oB-XdX"/>
+                        <outlet property="tableView" destination="sKX-aV-Mgw" id="WP1-xd-ZAg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMS-JL-7vL" userLabel="First Responder" sceneMemberID="firstResponder"/>

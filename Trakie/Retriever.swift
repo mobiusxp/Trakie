@@ -10,5 +10,5 @@ import Foundation
 
 // Protocol for retrievers
 protocol Retriever{
-    func getData(trackingNumber:String) -> String;
+    func getData(trackingNumber:String) throws -> String;
 }
