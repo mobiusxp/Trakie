@@ -1,5 +1,5 @@
 //
-//  USPSParser.swift
+//  USPSValidator.swift
 //  Trakie
 //
 //  Created by Khoa Nguyen on 11/4/15.
@@ -8,9 +8,11 @@
 
 import Foundation
 
-class USPSParser: Parser {
+class USPSValidator:Validator{
     
-    func parse(input:String) -> Package {
-        return Package(trackingNumber: "a");
+    func validate(trackingNumber: String) -> Bool {
+        
+        return true;
     }
+    
 }

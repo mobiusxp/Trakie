@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Trakie
 //
-//  Created by Khoa Nguyen on 12/2/15.
+//  Created by Khoa Nguyen on 11/2/15.
 //  Copyright © 2015 Khoa Nguyen. All rights reserved.
 //
 
@@ -12,9 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var dm:DataManager?;
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        dm = DataManager();
+        
         // Override point for customization after application launch.
         return true
     }

@@ -17,6 +17,9 @@
 		73064B181C12426400CDD480 /* LocalParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B171C12426400CDD480 /* LocalParser.swift */; };
 		73064B1A1C12463C00CDD480 /* ParserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B191C12463C00CDD480 /* ParserFactory.swift */; };
 		73064B1C1C12464E00CDD480 /* RetrieverFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B1B1C12464E00CDD480 /* RetrieverFactory.swift */; };
+		73064B1E1C12732800CDD480 /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B1D1C12732800CDD480 /* ServiceType.swift */; };
+		73064B211C1274BE00CDD480 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B201C1274BE00CDD480 /* Validator.swift */; };
+		73064B231C1274CC00CDD480 /* USPSValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B221C1274CC00CDD480 /* USPSValidator.swift */; };
 		738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CB1C0F864800F3A3A1 /* AppDelegate.swift */; };
 		738691CE1C0F864800F3A3A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CD1C0F864800F3A3A1 /* ViewController.swift */; };
 		738691D11C0F864800F3A3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691CF1C0F864800F3A3A1 /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 		73064B171C12426400CDD480 /* LocalParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalParser.swift; sourceTree = "<group>"; };
 		73064B191C12463C00CDD480 /* ParserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserFactory.swift; sourceTree = "<group>"; };
 		73064B1B1C12464E00CDD480 /* RetrieverFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieverFactory.swift; sourceTree = "<group>"; };
+		73064B1D1C12732800CDD480 /* ServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
+		73064B201C1274BE00CDD480 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		73064B221C1274CC00CDD480 /* USPSValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USPSValidator.swift; sourceTree = "<group>"; };
 		738691C81C0F864800F3A3A1 /* Trakie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trakie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738691CB1C0F864800F3A3A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738691CD1C0F864800F3A3A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,15 @@
 			name = Parsers;
 			sourceTree = "<group>";
 		};
+		73064B1F1C1274B000CDD480 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				73064B201C1274BE00CDD480 /* Validator.swift */,
+				73064B221C1274CC00CDD480 /* USPSValidator.swift */,
+			);
+			name = Validators;
+			sourceTree = "<group>";
+		};
 		738691BF1C0F864800F3A3A1 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +138,7 @@
 		738691CA1C0F864800F3A3A1 /* Trakie */ = {
 			isa = PBXGroup;
 			children = (
+				73064B1F1C1274B000CDD480 /* Validators */,
 				73064B121C1234DE00CDD480 /* Parsers */,
 				738691DF1C0F86CE00F3A3A1 /* Assets */,
 				738691DE1C0F86C400F3A3A1 /* Model */,
@@ -154,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				73064B011C11E59400CDD480 /* Package.swift */,
+				73064B1D1C12732800CDD480 /* ServiceType.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -238,14 +255,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				73064B161C12423800CDD480 /* USPSParser.swift in Sources */,
+				73064B1E1C12732800CDD480 /* ServiceType.swift in Sources */,
 				73064B1C1C12464E00CDD480 /* RetrieverFactory.swift in Sources */,
 				73064B0F1C12114100CDD480 /* LocalRetriever.swift in Sources */,
 				73ACF9A31C11541600C6787A /* InfoDetVC.swift in Sources */,
+				73064B231C1274CC00CDD480 /* USPSValidator.swift in Sources */,
 				73064B071C12100F00CDD480 /* DataManager.swift in Sources */,
 				73B0A0C31C10953800C1AA45 /* PackageTableVC.swift in Sources */,
 				738691CE1C0F864800F3A3A1 /* ViewController.swift in Sources */,
 				73064B0C1C12111500CDD480 /* USPSRetriever.swift in Sources */,
 				73064B021C11E59400CDD480 /* Package.swift in Sources */,
+				73064B211C1274BE00CDD480 /* Validator.swift in Sources */,
 				738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */,
 				73064B141C1234EC00CDD480 /* Parser.swift in Sources */,
 				73064B181C12426400CDD480 /* LocalParser.swift in Sources */,

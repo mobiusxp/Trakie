@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Trakie
 //
-//  Created by Khoa Nguyen on 12/2/15.
+//  Created by Khoa Nguyen on 11/2/15.
 //  Copyright © 2015 Khoa Nguyen. All rights reserved.
 //
 
