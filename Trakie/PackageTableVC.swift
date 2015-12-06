@@ -23,10 +23,6 @@ class PackageTableVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    func test(){
-        print("test123");
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,8 +46,7 @@ class PackageTableVC: UITableViewController {
         
         // Configure the cell...
         cell.textLabel?.text = packages[indexPath.row].name;
-        cell.detailTextLabel?.text = packages[indexPath.row].events![0].Event;
-        
+        cell.detailTextLabel?.text = "\(packages[indexPath.row].events![0].Event) - \(packages[indexPath.row].events![0].EventDate) \(packages[indexPath.row].events![0].EventTime!)";
 
         return cell
     }
@@ -92,14 +87,39 @@ class PackageTableVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let nextVC = segue.destinationViewController as? PackageDetailTableVC{
+            let indexPath = tableView.indexPathForSelectedRow;
+            // print("You tapped \(indexPath)");
+            
+            
+            // get the name of the Park
+            let selectedPackage = packages[indexPath!.row];
+            
+            // create a new Park Detail Controller and set its properties
+            // let detailVC = segue.destinationViewController as! PackageDetailTableVC;
+            
+            nextVC.selectedPackage = selectedPackage;
+            
+            nextVC.sec1 = [selectedPackage.trackingNumber];
+            if(selectedPackage.notes != nil){
+                nextVC.sec3 = [selectedPackage.notes!];
+            }else{
+                nextVC.sec3 = [];
+            }
+        }else if let nextVC = segue.destinationViewController as? AddPackageVC{
+            
+        }
+        
+        // detailVC.parkIndex =  indexPath!.row;
+        
     }
-    */
+    
 
 }

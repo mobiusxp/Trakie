@@ -1,15 +1,15 @@
 //
-//  InfoSumVC.swift
+//  TrackingEventVC.swift
 //  Trakie
 //
-//  Created by Khoa Nguyen on 11/3/15.
+//  Created by Khoa Nguyen on 12/6/15.
 //  Copyright © 2015 Khoa Nguyen. All rights reserved.
 //
 
 import UIKit
 
-class InfoSumVC: UIViewController{
-    
+class TrackingEventVC: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,9 +20,6 @@ class InfoSumVC: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
     
 
     /*
