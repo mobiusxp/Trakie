@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import CoreData
 
 class USPSParser: Parser{
     
@@ -32,46 +33,51 @@ class USPSParser: Parser{
     
     // Take in the tracking number and create the package
     func makePackage(trackingNumber:String){
-        parsedPackage = Package(trackingNumber: trackingNumber, svcType: ServiceType.USPS);
+        parsedPackage = Package();
+        parsedPackage!.trackingNumber = trackingNumber;
+        parsedPackage!.svcType = NSNumber(int:ServiceType.USPS.rawValue);
     }
     
     // Add the events into the tracking object
     func addEvents(summary:XMLIndexer, details:XMLIndexer){
-        var events:[TrackingEvent] = [];
-        events.append(makeEvent(summary));
+        var events = NSMutableOrderedSet();
+        events.addObject(makeEvent(summary));
         
         for event in details{
-            events.append(makeEvent(event));
+            events.addObject(makeEvent(event));
         }
         
         parsedPackage!.events = events;
     }
     
     func makeEvent(event:XMLIndexer) -> TrackingEvent{
-        let trackEvent = TrackingEvent(EventDate: event["EventDate"].element!.text!, Event: event["Event"].element!.text!);
+        let trackEvent = TrackingEvent();
+        // EventDate: event["EventDate"].element!.text!, Event: event["Event"].element!.text!
+        trackEvent.eventDate = event["EventDate"].element!.text!;
+        trackEvent.event = event["Event"].element!.text!;
         
         if(event["EventTime"].element!.text != nil){
-            trackEvent.EventTime = event["EventTime"].element!.text
+            trackEvent.eventTime = event["EventTime"].element!.text
         }else{
-            trackEvent.EventTime = "N/A";
+            trackEvent.eventTime = "N/A";
         }
         
         if(event["EventCity"].element!.text != nil){
-            trackEvent.EventCity = event["EventCity"].element!.text
+            trackEvent.eventCity = event["EventCity"].element!.text
         }else{
-            trackEvent.EventCity = "N/A";
+            trackEvent.eventCity = "N/A";
         }
         
         if(event["EventState"].element!.text != nil){
-            trackEvent.EventState = event["EventState"].element!.text
+            trackEvent.eventState = event["EventState"].element!.text
         }else{
-            trackEvent.EventState = "N/A";
+            trackEvent.eventState = "N/A";
         }
         
         if(event["EventZIPCode"].element!.text != nil){
-            trackEvent.EventZip = event["EventZIPCode"].element!.text
+            trackEvent.eventZip = event["EventZIPCode"].element!.text
         }else{
-            trackEvent.EventZip = "N/A";
+            trackEvent.eventZip = "N/A";
         }
         
         return trackEvent

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Package" representedClassName=".Package" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="svcType" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="trackingNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TrackingEvent" inverseName="package" inverseEntity="TrackingEvent" syncable="YES"/>
+    </entity>
+    <entity name="TrackingEvent" representedClassName=".TrackingEvent" syncable="YES">
+        <attribute name="event" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventZip" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="package" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Package" inverseName="events" inverseEntity="Package" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Package" positionX="-27" positionY="-76" width="128" height="118"/>
+        <element name="TrackingEvent" positionX="205" positionY="-15" width="128" height="148"/>
+    </elements>
+</model>

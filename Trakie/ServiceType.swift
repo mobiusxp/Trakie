@@ -9,7 +9,7 @@
 import Foundation
 
 // Enumerable for Service type so we can add parsers, retrievers, and validators afterwards
-enum ServiceType{
-    case Local
-    case USPS
+enum ServiceType : Int32{
+    case Local = 0;
+    case USPS = 1;
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PackageTableVC: UITableViewController {
     
@@ -44,9 +45,13 @@ class PackageTableVC: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("packageCell", forIndexPath: indexPath)
         
+        let package = packages[indexPath.row];
+        var lastEvent = package.valueForKey("events");
+        lastEvent = lastEvent![0];
+        
         // Configure the cell...
-        cell.textLabel?.text = packages[indexPath.row].name;
-        cell.detailTextLabel?.text = "\(packages[indexPath.row].events![0].Event) - \(packages[indexPath.row].events![0].EventDate) \(packages[indexPath.row].events![0].EventTime!)";
+        cell.textLabel?.text = package.valueForKey("name") as? String;
+        cell.detailTextLabel?.text = "\(lastEvent!.valueForKey("event") as? String) - \(lastEvent!.valueForKey("eventDate") as? String) \(lastEvent!.valueForKey("eventTime") as? String)";
 
         return cell
     }
@@ -106,10 +111,12 @@ class PackageTableVC: UITableViewController {
             // let detailVC = segue.destinationViewController as! PackageDetailTableVC;
             
             nextVC.selectedPackage = selectedPackage;
+            let eventArray = selectedPackage.getArray();
+            nextVC.packageEvents = eventArray;
             
-            nextVC.sec1 = [selectedPackage.trackingNumber];
-            if(selectedPackage.notes != nil){
-                nextVC.sec3 = [selectedPackage.notes!];
+            nextVC.sec1 = [selectedPackage.valueForKey("trackingNumber") as! String];
+            if(selectedPackage.valueForKey("notes") != nil){
+                nextVC.sec3 = [selectedPackage.valueForKey("notes") as! String];
             }else{
                 nextVC.sec3 = [];
             }

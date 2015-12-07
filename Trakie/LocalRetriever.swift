@@ -9,12 +9,21 @@
 import Foundation
 
 class LocalRetriever:Retriever{
+    
     func getData(trackingNumber:String) -> String{
         return "aaa";
     }
     
-    // Local retriever can get all data to load saved tracking numbers
-    func getAllData() -> String{
-        return "aaa";
+    //
+    func getAllData() -> [String]{
+        let packages = NSUserDefaults.standardUserDefaults().arrayForKey("packages") as? [String]
+        return packages!;
     }
+    
+    /*
+    func saveFavs(){
+        let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults();
+        defaults.setValue(favs, forKey:"favorites");
+    }
+    */
 }

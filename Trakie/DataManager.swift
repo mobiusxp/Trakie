@@ -11,6 +11,7 @@
 //
 
 import Foundation
+import CoreData
 
 class DataManager{
     
@@ -33,13 +34,34 @@ class DataManager{
         return [];
     }
     
+    // Load saved data
+    func loadSaveData(){
+        //1
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        //3
+        do {
+            let results =
+            try managedContext.executeFetchRequest(fetchRequest)
+            people = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
     
     func testUSPS() -> Package{
         let test = USPSRetriever();
         let testParse = USPSParser();
         do{
           let lol = try test.getData("9374889949010715350525");
-            var testPkg = testParse.parse(lol);
+            let testPkg = testParse.parse(lol);
             return testPkg;
             
         }catch TrakieError.ParserError{
@@ -48,7 +70,8 @@ class DataManager{
             print("error 2");
         }
         
-        return Package(trackingNumber: "lol", svcType: ServiceType.Local);
+        // return Package(trackingNumber: "lol", svcType: ServiceType.Local);
+        return Package();
     }
     
 }

@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class PackageDetailTableVC: UITableViewController{
 
-    var selectedPackage:Package?;
+    var selectedPackage:NSManagedObject?;
+    var packageEvents:NSArray?;
     var sec1:[String]?
     var sec3:[String]?
     
     override func viewDidLoad() {
-        self.title = selectedPackage!.name;
+        self.title = selectedPackage!.valueForKey("name") as? String;
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -34,7 +36,7 @@ class PackageDetailTableVC: UITableViewController{
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if(selectedPackage!.notes != nil){
+        if(selectedPackage!.valueForKey("notes") as? String != nil){
             return 3;
         }else{
             return 2;
@@ -50,14 +52,14 @@ class PackageDetailTableVC: UITableViewController{
         case 0:
             return 1;
         case 1:
-            if(selectedPackage!.notes != nil){
+            if(selectedPackage!.valueForKey("notes") as? String != nil){
                 return 1;
             }else{
-                return selectedPackage!.events!.count;
+                return packageEvents!.count;
             }
         case 2:
-            if(selectedPackage!.events != nil){
-                return selectedPackage!.events!.count;
+            if(packageEvents != nil){
+                return packageEvents!.count;
             }else{
                 return 1;
             }
@@ -69,49 +71,44 @@ class PackageDetailTableVC: UITableViewController{
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
           
         // Configure the cell...
         switch indexPath.section{
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-            cell.textLabel!.text = selectedPackage!.trackingNumber;
+            cell.textLabel!.text = selectedPackage!.valueForKey("trackingNumber") as? String;
             
             return cell;
         case 1:
-            if(selectedPackage!.notes != nil){
+            if(selectedPackage!.valueForKey("notes") != nil){
                 let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-                if(selectedPackage!.notes != nil){
-                    cell.textLabel!.text = selectedPackage!.notes!;
+                if(selectedPackage!.valueForKey("notes") != nil){
+                    cell.textLabel!.text = selectedPackage!.valueForKey("notes") as? String;
                 }else{
                     cell.textLabel!.text = "";
                 }
                 return cell;
             }else{
                 let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath)
-                if(selectedPackage!.events != nil){
-                    let event = selectedPackage!.events![indexPath.row];
-                    cell.textLabel!.text = event.Event;
-                cell.detailTextLabel!.text = "\(event.EventDate) \(event.EventTime!) - \(event.EventCity!), \(event.EventState!)";
+                if(packageEvents != nil){
+                    let event = packageEvents![indexPath.row] as! TrackingEvent;
+                    cell.textLabel!.text = event.valueForKey("event") as? String;
+                cell.detailTextLabel!.text = "\(event.valueForKey("eventDate") as? String) \(event.valueForKey("eventTime") as? String) - \(event.valueForKey("eventCity") as? String), \(event.valueForKey("eventState") as? String)";
                 }else{
                     cell.textLabel!.text = "No tracking information available";
                 }
                 
                 return cell;
             }
-
-            
-            
         case 2:
             let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath)
-            if(selectedPackage!.events != nil){
-                let event = selectedPackage!.events![indexPath.row];
-                cell.textLabel!.text = event.Event;
-                cell.detailTextLabel!.text = "\(event.EventDate) \(event.EventTime!) - \(event.EventCity!), \(event.EventState!)";
+            if(packageEvents != nil){
+                let event = packageEvents![indexPath.row] as! TrackingEvent;
+                cell.textLabel!.text = event.valueForKey("event") as? String;
+                cell.detailTextLabel!.text = "\(event.valueForKey("eventDate") as? String) \(event.valueForKey("eventTime") as? String) - \(event.valueForKey("eventCity") as? String), \(event.valueForKey("eventState") as? String)";
             }else{
                 cell.textLabel!.text = "No tracking information available";
             }
-            
             return cell;
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
@@ -128,7 +125,7 @@ class PackageDetailTableVC: UITableViewController{
         case 0:
             return "Tracking Number";
         case 1:
-            if(selectedPackage!.notes != nil){
+            if(selectedPackage!.valueForKey("notes") != nil){
                 return "Notes";
             }else{
                 return "Tracking Events";
