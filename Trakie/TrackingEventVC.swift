@@ -9,7 +9,7 @@
 import UIKit
 
 class TrackingEventVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

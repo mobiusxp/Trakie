@@ -11,31 +11,69 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 class DataManager{
     
     //
-    func getData(input:String, source:ServiceType) -> Package?{
+    func getData(input:Package, source:ServiceType) -> Package?{
         let retriever = RetrieverFactory().getRetriever(source);
-        /*
+        
+        
+        
         do{
-            try retriever.getData(input);
+            let toParse = try retriever.getData(input.trackingNumber!);
+            var parser = ParserFactory().getParser(source);
+            parser.dm = self;
+            let parsed = try parser.parse(input, input: toParse);
+            return parsed;
+            
         }catch TrakieError.RetrieverError{
-            print("Error cat.jpg");
+            print("Retriever cat.jpg");
+        }catch TrakieError.ParserError{
+            print("Parser cat.jpg");
         }
-        */
+        catch{
+            print("Error cat.jpg");
+            // return nil;
+        }
+
         
         return nil;
     }
+    
     
     // Load the user's saved packages
     func loadUserList() -> [Package]{
         return [];
     }
     
+    
+
+    
     // Load saved data
-    func loadSaveData(){
+    func loadSaveData() -> [Package]{
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+
+        let fetchRequest = NSFetchRequest(entityName: "Package")
+        
+        do {
+            let results =
+            try managedContext.executeFetchRequest(fetchRequest)
+            let packages = results as! [Package]
+            return packages;
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            return [];
+        }
+        
+    }
+    
+    func saveNewPackage(trackingNumber:String, name:String, notes:String?, svcType:ServiceType){
         //1
         let appDelegate =
         UIApplication.sharedApplication().delegate as! AppDelegate
@@ -43,19 +81,77 @@ class DataManager{
         let managedContext = appDelegate.managedObjectContext
         
         //2
-        let fetchRequest = NSFetchRequest(entityName: "Person")
+        let entity =  NSEntityDescription.entityForName("Package",
+            inManagedObjectContext:managedContext)
+        
+        let package = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext: managedContext)
         
         //3
+        package.setValue(name, forKey: "name")
+        package.setValue(trackingNumber, forKey: "trackingNumber");
+        package.setValue(NSInteger(svcType.rawValue), forKey: "svcType");
+        let loadedPackage = getData(package as! Package, source: ServiceType.USPS);
+        
+        //4
         do {
-            let results =
-            try managedContext.executeFetchRequest(fetchRequest)
-            people = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
+            try managedContext.save()
+            //5
+            appDelegate.packages!.append(loadedPackage!);
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
         }
     }
     
+    func saveNewTrackingEvent(toStore:TrackingEvent){
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        // toStore.setValue(event.event, forKey: "event")
+        // toStore.setValue(event.eventDate, forKey: "eventDate");
+        // toStore.setValue(event.eventTime, forKey: "eventTime");
+        // let loadedPackage = getData(package as! Package, source: ServiceType.USPS);
+        
+        //4
+        do {
+            try managedContext.save()
+            //5
+            // appDelegate.packages!.append(loadedPackage!);
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
     
+    func makeCDTrackingEvent() -> TrackingEvent{
+        //1
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entityForName("TrackingEvent",
+            inManagedObjectContext:managedContext)
+        
+        let toStore = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        return toStore as! TrackingEvent;
+    }
+    
+    // Delete a Package from CoreData
+    func deleteCDPackage(packageid : Int){
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext;
+        managedContext.deleteObject(appDelegate.packages![packageid] as NSManagedObject);
+        appDelegate.packages!.removeAtIndex(packageid);
+        appDelegate.saveContext();
+    }
+    
+    /*
     func testUSPS() -> Package{
         let test = USPSRetriever();
         let testParse = USPSParser();
@@ -73,5 +169,6 @@ class DataManager{
         // return Package(trackingNumber: "lol", svcType: ServiceType.Local);
         return Package();
     }
+    */
     
 }

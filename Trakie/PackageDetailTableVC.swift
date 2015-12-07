@@ -11,6 +11,8 @@ import CoreData
 
 class PackageDetailTableVC: UITableViewController{
 
+    // @IBOutlet weak var deleteItem: UIBarButtonItem!
+    var selectedPackageIndex:Int?;
     var selectedPackage:NSManagedObject?;
     var packageEvents:NSArray?;
     var sec1:[String]?
@@ -92,8 +94,9 @@ class PackageDetailTableVC: UITableViewController{
                 let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath)
                 if(packageEvents != nil){
                     let event = packageEvents![indexPath.row] as! TrackingEvent;
-                    cell.textLabel!.text = event.valueForKey("event") as? String;
-                cell.detailTextLabel!.text = "\(event.valueForKey("eventDate") as? String) \(event.valueForKey("eventTime") as? String) - \(event.valueForKey("eventCity") as? String), \(event.valueForKey("eventState") as? String)";
+                    // print(event.event!);
+                    cell.textLabel!.text = event.event!;
+                cell.detailTextLabel!.text = "\(event.eventTime!) - \(event.eventCity!), \(event.eventState!)";
                 }else{
                     cell.textLabel!.text = "No tracking information available";
                 }
@@ -104,8 +107,8 @@ class PackageDetailTableVC: UITableViewController{
             let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath)
             if(packageEvents != nil){
                 let event = packageEvents![indexPath.row] as! TrackingEvent;
-                cell.textLabel!.text = event.valueForKey("event") as? String;
-                cell.detailTextLabel!.text = "\(event.valueForKey("eventDate") as? String) \(event.valueForKey("eventTime") as? String) - \(event.valueForKey("eventCity") as? String), \(event.valueForKey("eventState") as? String)";
+                cell.textLabel!.text = event.event!;
+                cell.detailTextLabel!.text = "\(event.eventTime!) - \(event.eventCity!), \(event.eventState!)";
             }else{
                 cell.textLabel!.text = "No tracking information available";
             }
@@ -138,6 +141,22 @@ class PackageDetailTableVC: UITableViewController{
     }
     
     
+    @IBAction func deleteItem(sender: AnyObject) {
+        let deleteAlert = UIAlertController(title:"Delete Package?", message: "Remove this package?", preferredStyle:UIAlertControllerStyle.Alert);
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        let dm = appDelegate.dm!;
+        
+        deleteAlert.addAction(UIAlertAction(title: "Delete", style: .Destructive, handler: {(action: UIAlertAction!) in
+            dm.deleteCDPackage(self.selectedPackageIndex!);
+            self.navigationController?.popToRootViewControllerAnimated(true);
+        }));
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: {(action: UIAlertAction!) in
+            // print("canceled");
+        }));
+        
+        self.presentViewController(deleteAlert, animated: true, completion: nil);
+    }
 
     /*
     // Override to support conditional editing of the table view.

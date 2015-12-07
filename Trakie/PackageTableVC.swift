@@ -15,6 +15,7 @@ class PackageTableVC: UITableViewController {
     var packages:[Package] = [];
 
     override func viewDidLoad() {
+        // print(packages[0].name);
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -46,14 +47,23 @@ class PackageTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("packageCell", forIndexPath: indexPath)
         
         let package = packages[indexPath.row];
-        var lastEvent = package.valueForKey("events");
-        lastEvent = lastEvent![0];
+        var packageEvents = package.valueForKey("events");
+        let lastEvent = packageEvents![0] as! TrackingEvent;
         
         // Configure the cell...
-        cell.textLabel?.text = package.valueForKey("name") as? String;
-        cell.detailTextLabel?.text = "\(lastEvent!.valueForKey("event") as? String) - \(lastEvent!.valueForKey("eventDate") as? String) \(lastEvent!.valueForKey("eventTime") as? String)";
+        cell.textLabel?.text = package.name!;
+        cell.detailTextLabel?.text = "\(lastEvent.event!) - \(lastEvent.eventDate!) \(lastEvent.eventTime!)";
 
         return cell
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        // print("view did appear");
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        packages = appDelegate.packages!;
+        packageTable.reloadData();
+        super.viewDidAppear(false);
     }
     
 
@@ -109,7 +119,7 @@ class PackageTableVC: UITableViewController {
             
             // create a new Park Detail Controller and set its properties
             // let detailVC = segue.destinationViewController as! PackageDetailTableVC;
-            
+            nextVC.selectedPackageIndex = indexPath!.row;
             nextVC.selectedPackage = selectedPackage;
             let eventArray = selectedPackage.getArray();
             nextVC.packageEvents = eventArray;

@@ -153,7 +153,11 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="f3p-UH-ZeS"/>
-                        <barButtonItem systemItem="trash" id="xL3-ti-Jbx"/>
+                        <barButtonItem systemItem="trash" id="xL3-ti-Jbx">
+                            <connections>
+                                <action selector="deleteItem:" destination="ixe-B2-fT9" id="QFu-gH-lxK"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Title" id="NJU-FD-RIa">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="eJJ-hw-cVV"/>
@@ -183,7 +187,7 @@
             </objects>
             <point key="canvasLocation" x="2153" y="169"/>
         </scene>
-        <!--Add PackageVC-->
+        <!--Add Package-->
         <scene sceneID="ilG-PK-1iu">
             <objects>
                 <viewController id="bEX-WE-9lh" customClass="AddPackageVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
@@ -196,16 +200,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IY0-o7-7ul">
-                                <rect key="frame" x="272" y="99" width="97" height="30"/>
+                                <rect key="frame" x="92" y="115" width="253" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tracking Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O42-lW-1HF">
+                                <rect key="frame" x="92" y="86" width="132" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6e-WX-kWx">
+                                <rect key="frame" x="92" y="218" width="253" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hg0-5Y-Qc5">
+                                <rect key="frame" x="92" y="315" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-IA-hmI">
+                                <rect key="frame" x="88" y="286" width="46" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="466-CS-DZX">
+                                <rect key="frame" x="92" y="189" width="115" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Package" id="7Z0-S7-xJS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Mxu-gs-d62">
+                            <connections>
+                                <action selector="saveItem:" destination="bEX-WE-9lh" id="CQf-zk-m9X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="notesArea" destination="hg0-5Y-Qc5" id="oNd-zl-Ko8"/>
+                        <outlet property="packageNameField" destination="G6e-WX-kWx" id="bmI-Ay-0zW"/>
+                        <outlet property="saveBtn" destination="Mxu-gs-d62" id="3Uh-o2-CMZ"/>
+                        <outlet property="trackingNumberField" destination="IY0-o7-7ul" id="POo-5B-WG6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cu5-Aw-BeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // checkFavorites();
         dm = DataManager();
         packageController = (self.window?.rootViewController as! UINavigationController).topViewController as? PackageTableVC;
-        packages = [];
+        packages = dm!.loadSaveData();
         // packages!.append(dm!.testUSPS());
         packageController!.packages = packages!;
         // Override point for customization after application launch.

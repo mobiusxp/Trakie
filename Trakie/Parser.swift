@@ -9,6 +9,8 @@
 import Foundation
 
 protocol Parser{
+    
+    var dm:DataManager? {get set}
     // Protocol for parsers, parse is for single tracking numbers
-    func parse(input:String) throws -> Package;
+    func parse(package:Package, input:String) throws -> Package;
 }

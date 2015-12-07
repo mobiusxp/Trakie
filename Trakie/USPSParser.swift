@@ -15,11 +15,13 @@ class USPSParser: Parser{
     
     // var XMLParser:NSXMLParser!;
     var parsedPackage:Package?;
+    var dm:DataManager?;
     
     
-    func parse(input:String) -> Package {
+    func parse(package: Package, input:String) -> Package {
         // let inputNSData = (input as NSString).dataUsingEncoding(NSUTF8StringEncoding);
         let parsed = SWXMLHash.parse(input);
+        parsedPackage = package;
         makePackage(parsed["TrackResponse"]["TrackInfo"].element!.attributes["ID"]!);
         addEvents(parsed["TrackResponse"]["TrackInfo"]["TrackSummary"], details: parsed["TrackResponse"]["TrackInfo"]["TrackDetail"] );
         
@@ -33,7 +35,6 @@ class USPSParser: Parser{
     
     // Take in the tracking number and create the package
     func makePackage(trackingNumber:String){
-        parsedPackage = Package();
         parsedPackage!.trackingNumber = trackingNumber;
         parsedPackage!.svcType = NSNumber(int:ServiceType.USPS.rawValue);
     }
@@ -51,12 +52,13 @@ class USPSParser: Parser{
     }
     
     func makeEvent(event:XMLIndexer) -> TrackingEvent{
-        let trackEvent = TrackingEvent();
+        let trackEvent = dm!.makeCDTrackingEvent();
         // EventDate: event["EventDate"].element!.text!, Event: event["Event"].element!.text!
         trackEvent.eventDate = event["EventDate"].element!.text!;
         trackEvent.event = event["Event"].element!.text!;
         
         if(event["EventTime"].element!.text != nil){
+            // print(event["EventTime"].element!.text);
             trackEvent.eventTime = event["EventTime"].element!.text
         }else{
             trackEvent.eventTime = "N/A";
@@ -79,6 +81,8 @@ class USPSParser: Parser{
         }else{
             trackEvent.eventZip = "N/A";
         }
+        
+        dm!.saveNewTrackingEvent(trackEvent);
         
         return trackEvent
     }

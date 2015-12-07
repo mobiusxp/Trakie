@@ -10,7 +10,9 @@ import Foundation
 
 class LocalParser:Parser{
     
-    func parse(input:String) -> Package {
+    var dm:DataManager?;
+    
+    func parse(package:Package, input:String) -> Package {
         // return Package(trackingNumber: "a", svcType: ServiceType.Local);
         return Package();
     }
