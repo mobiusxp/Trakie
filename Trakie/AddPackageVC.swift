@@ -28,14 +28,24 @@ class AddPackageVC: UIViewController {
     
     @IBAction func saveItem(sender: AnyObject) {
         // print("Save invoked!");
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let dataManager = appDelegate.dm!;
-        
-        dataManager.saveNewPackage(trackingNumberField!.text!, name: packageNameField!.text!, notes: notesArea!.text!, svcType: ServiceType.USPS);
-        
-        navigationController?.popViewControllerAnimated(true);
+        let validator = Validator();
+        if(validator.validateTracking(trackingNumberField!.text!, service: ServiceType.USPS)){
+            let appDelegate =
+            UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            let dataManager = appDelegate.dm!;
+            
+            dataManager.saveNewPackage(trackingNumberField!.text!, name: packageNameField!.text!, notes: notesArea!.text!, svcType: ServiceType.USPS);
+            
+            navigationController?.popViewControllerAnimated(true);
+        }else{
+            let alertController = UIAlertController(title: "Invalid Tracking Number", message:
+                "This tracking number is invalid, please try again.", preferredStyle: UIAlertControllerStyle.Alert);
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil));
+            
+            self.presentViewController(alertController, animated: true, completion: nil);
+        }
+
     }
 
     

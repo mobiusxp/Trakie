@@ -96,7 +96,7 @@ class PackageDetailTableVC: UITableViewController{
                     let event = packageEvents![indexPath.row] as! TrackingEvent;
                     // print(event.event!);
                     cell.textLabel!.text = event.event!;
-                cell.detailTextLabel!.text = "\(event.eventTime!) - \(event.eventCity!), \(event.eventState!)";
+                cell.detailTextLabel!.text = "\(event.eventDate!) \(event.eventTime!) - \(event.eventCity!), \(event.eventState!)";
                 }else{
                     cell.textLabel!.text = "No tracking information available";
                 }
@@ -108,7 +108,7 @@ class PackageDetailTableVC: UITableViewController{
             if(packageEvents != nil){
                 let event = packageEvents![indexPath.row] as! TrackingEvent;
                 cell.textLabel!.text = event.event!;
-                cell.detailTextLabel!.text = "\(event.eventTime!) - \(event.eventCity!), \(event.eventState!)";
+                cell.detailTextLabel!.text = "\(event.eventDate!) \(event.eventTime!) - \(event.eventCity!), \(event.eventState!)";
             }else{
                 cell.textLabel!.text = "No tracking information available";
             }
