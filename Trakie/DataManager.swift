@@ -17,7 +17,7 @@ import CoreData
 class DataManager{
     
     //
-    func getData(input:Package, source:ServiceType) -> Package?{
+    func getData(input:Package, source:ServiceType) throws -> Package?{
         let retriever = RetrieverFactory().getRetriever(source);
         
         
@@ -32,6 +32,7 @@ class DataManager{
         }catch TrakieError.RetrieverError{
             print("Retriever cat.jpg");
         }catch TrakieError.ParserError{
+            throw TrakieError.ParserError;
             print("Parser cat.jpg");
         }
         catch{
@@ -73,7 +74,7 @@ class DataManager{
         
     }
     
-    func saveNewPackage(trackingNumber:String, name:String, notes:String?, svcType:ServiceType){
+    func saveNewPackage(trackingNumber:String, name:String, notes:String?, svcType:ServiceType) throws{
         //1
         let appDelegate =
         UIApplication.sharedApplication().delegate as! AppDelegate
@@ -91,16 +92,24 @@ class DataManager{
         package.setValue(name, forKey: "name")
         package.setValue(trackingNumber, forKey: "trackingNumber");
         package.setValue(NSInteger(svcType.rawValue), forKey: "svcType");
-        let loadedPackage = getData(package as! Package, source: ServiceType.USPS);
+        var loadedPackage:Package?;
+        do{
+            loadedPackage = try getData(package as! Package, source: ServiceType.USPS);
+        }catch TrakieError.ParserError{
+            print("error caught");
+            throw TrakieError.ParserError;
+        }catch let vague as ErrorType{
+            print("I write bad code \(vague)");
+        }
         
-        //4
-        do {
+        do{
             try managedContext.save()
             //5
             appDelegate.packages!.append(loadedPackage!);
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+        }catch let error as NSError{
+            print("I write bad code \(error)");
         }
+
     }
     
     func saveNewTrackingEvent(toStore:TrackingEvent){

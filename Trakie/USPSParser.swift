@@ -18,12 +18,16 @@ class USPSParser: Parser{
     var dm:DataManager?;
     
     
-    func parse(package: Package, input:String) -> Package {
+    func parse(package: Package, input:String) throws -> Package {
         // let inputNSData = (input as NSString).dataUsingEncoding(NSUTF8StringEncoding);
         let parsed = SWXMLHash.parse(input);
         parsedPackage = package;
+        if parsed["TrackResponse"]["TrackInfo"]["Error"].element != nil{
+            throw TrakieError.ParserError;
+        }else{
         makePackage(parsed["TrackResponse"]["TrackInfo"].element!.attributes["ID"]!);
         addEvents(parsed["TrackResponse"]["TrackInfo"]["TrackSummary"], details: parsed["TrackResponse"]["TrackInfo"]["TrackDetail"] );
+        }
         
         // XMLParser = NSXMLParser(data: inputNSData!);
         // XMLParser.delegate = self;
@@ -53,6 +57,7 @@ class USPSParser: Parser{
     
     func makeEvent(event:XMLIndexer) -> TrackingEvent{
         let trackEvent = dm!.makeCDTrackingEvent();
+
         // EventDate: event["EventDate"].element!.text!, Event: event["Event"].element!.text!
         trackEvent.eventDate = event["EventDate"].element!.text!;
         trackEvent.event = event["Event"].element!.text!;

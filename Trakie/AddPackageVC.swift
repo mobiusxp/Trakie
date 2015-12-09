@@ -29,13 +29,24 @@ class AddPackageVC: UIViewController {
     @IBAction func saveItem(sender: AnyObject) {
         // print("Save invoked!");
         let validator = Validator();
-        if(validator.validateTracking(trackingNumberField!.text!, service: ServiceType.USPS)){
-            let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
+        let formattedNumber = trackingNumberField!.text!.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil);
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+    //  appDelegate.packages!.co
+        if(validator.validateTracking(formattedNumber, service: ServiceType.USPS)){
+            
             
             let dataManager = appDelegate.dm!;
             
-            dataManager.saveNewPackage(trackingNumberField!.text!, name: packageNameField!.text!, notes: notesArea!.text!, svcType: ServiceType.USPS);
+            do{
+                try dataManager.saveNewPackage(formattedNumber, name: packageNameField!.text!, notes: notesArea!.text!, svcType: ServiceType.USPS);
+            }catch let e as ErrorType{
+                let alertController = UIAlertController(title: "Invalid Package", message:
+                    "This package is not in the USPS system. Please check your tracking number. \(e)", preferredStyle: UIAlertControllerStyle.Alert);
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil));
+                
+                self.presentViewController(alertController, animated: true, completion: nil);
+            }
             
             navigationController?.popViewControllerAnimated(true);
         }else{

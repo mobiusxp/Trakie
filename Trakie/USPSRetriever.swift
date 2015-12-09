@@ -21,10 +21,10 @@ class USPSRetriever: Retriever{
                 if(dataString != nil){
                     return dataString as! String;
                 }else{
-                    throw TrakieError.ParserError;
+                    throw TrakieError.RetrieverError;
                 }
             }else{
-                throw TrakieError.ParserError;
+                throw TrakieError.RetrieverError;
             }
 
         
