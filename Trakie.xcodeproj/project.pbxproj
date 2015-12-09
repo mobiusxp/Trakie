@@ -27,6 +27,7 @@
 		738691D31C0F864800F3A3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 738691D21C0F864800F3A3A1 /* Assets.xcassets */; };
 		738691D61C0F864800F3A3A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691D41C0F864800F3A3A1 /* LaunchScreen.storyboard */; };
 		738691E31C0FA1C200F3A3A1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 738691E21C0FA1C200F3A3A1 /* .gitignore */; };
+		73A27F511C1890810079F1FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A27F501C1890810079F1FC /* MapKit.framework */; };
 		73A625791C177CAB002225A8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A625781C177CAB002225A8 /* Validator.swift */; };
 		73B0A0C11C1094D500C1AA45 /* AddPackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0A0C01C1094D500C1AA45 /* AddPackageVC.swift */; };
 		73B0A0C31C10953800C1AA45 /* PackageTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */; };
@@ -61,6 +62,7 @@
 		738691D51C0F864800F3A3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		738691D71C0F864800F3A3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		738691E21C0FA1C200F3A3A1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		73A27F501C1890810079F1FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		73A625781C177CAB002225A8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		73B0A0C01C1094D500C1AA45 /* AddPackageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPackageVC.swift; sourceTree = "<group>"; };
 		73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableVC.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A27F511C1890810079F1FC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +135,7 @@
 		738691BF1C0F864800F3A3A1 = {
 			isa = PBXGroup;
 			children = (
+				73A27F501C1890810079F1FC /* MapKit.framework */,
 				73064B261C12B83C00CDD480 /* SampleResponses.txt */,
 				738691E21C0FA1C200F3A3A1 /* .gitignore */,
 				738691CA1C0F864800F3A3A1 /* Trakie */,

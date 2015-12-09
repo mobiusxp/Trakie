@@ -118,7 +118,6 @@ class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDispla
 
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -127,13 +126,22 @@ class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDispla
             let indexPath = tableView.indexPathForSelectedRow;
             // print("You tapped \(indexPath)");
             
-            
+            var selectedPackage:Package;
+            print(sender);
             // get the name of the Park
-            let selectedPackage = packages[indexPath!.row];
             
+            if  self.searchDisplayController!.active{
+                let indexPath = self.searchDisplayController?.searchResultsTableView.indexPathForSelectedRow;
+                selectedPackage = filteredPackages[indexPath!.row];
+            }else{
+                selectedPackage = packages[indexPath!.row];
+            }
+            
+            
+            // selectedPackage = packages[0];
             // create a new Park Detail Controller and set its properties
             // let detailVC = segue.destinationViewController as! PackageDetailTableVC;
-            nextVC.selectedPackageIndex = indexPath!.row;
+            nextVC.selectedPackageIndex = packages.indexOf(selectedPackage);
             nextVC.selectedPackage = selectedPackage;
             let eventArray = selectedPackage.getArray();
             nextVC.packageEvents = eventArray;
@@ -162,7 +170,9 @@ class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDispla
         })
     }
     
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+    
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
         self.filterContentForSearchText(searchString)
         return true
     }

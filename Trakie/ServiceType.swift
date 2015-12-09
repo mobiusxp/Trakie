@@ -12,4 +12,14 @@ import Foundation
 enum ServiceType : Int32{
     case Local = 0;
     case USPS = 1;
+    
+    // Return a string for the service type
+    var description: String{
+        switch self{
+        case .Local:
+            return "System";
+        case .USPS:
+            return "USPS";
+        }
+    }
 }

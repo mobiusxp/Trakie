@@ -39,7 +39,7 @@ class AddPackageVC: UIViewController {
             let dataManager = appDelegate.dm!;
             
             do{
-                try dataManager.saveNewPackage(formattedNumber, name: packageNameField!.text!, notes: notesArea!.text!, svcType: ServiceType.USPS);
+                try dataManager.saveNewPackage(formattedNumber, name: packageNameField!.text!, svcType: ServiceType.USPS);
                 navigationController?.popViewControllerAnimated(true);
             }catch let e as ErrorType{
                 let alertController = UIAlertController(title: "Invalid Package", message:

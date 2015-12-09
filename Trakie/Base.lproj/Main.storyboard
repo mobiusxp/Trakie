@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Packages-->
@@ -52,7 +55,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="ixe-B2-fT9" kind="show" id="eBW-B4-48A"/>
+                                    <segue destination="ixe-B2-fT9" kind="show" identifier="detailSegue" id="eBW-B4-48A"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -93,7 +96,7 @@
         <!--Title-->
         <scene sceneID="Bbe-Wq-zvj">
             <objects>
-                <tableViewController id="ixe-B2-fT9" customClass="PackageDetailTableVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="packageDetail" id="ixe-B2-fT9" customClass="PackageDetailTableVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="PLL-c9-elv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="1439" y="169"/>
         </scene>
-        <!--Title-->
+        <!--Tracking Event-->
         <scene sceneID="Cu9-YI-H9G">
             <objects>
-                <viewController id="JSg-Qo-2XU" customClass="TrackingEventVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Tracking Event" id="JSg-Qo-2XU" customClass="TrackingEventVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dcd-qv-SHK"/>
                         <viewControllerLayoutGuide type="bottom" id="h6O-KX-m5B"/>
@@ -182,9 +185,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tracking Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHb-DN-oIw">
-                                <rect key="frame" x="51" y="101" width="132" height="65"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mcG-L8-H8V">
+                                <rect key="frame" x="0.0" y="222" width="600" height="334"/>
                                 <animations/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ Event Location }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoD-6N-kTj">
+                                <rect key="frame" x="20" y="168" width="148" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ Event Time }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D29-IN-CWf">
+                                <rect key="frame" x="20" y="90" width="120" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ Event Text }}" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lhQ-g3-69d">
+                                <rect key="frame" x="20" y="90" width="296" height="93"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="4Yg-FW-udE"/>
+                                    <constraint firstAttribute="height" constant="93" id="crW-f7-U4k"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -192,12 +217,30 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D29-IN-CWf" firstAttribute="leading" secondItem="lhQ-g3-69d" secondAttribute="leading" id="BvJ-jI-wtz"/>
+                            <constraint firstAttribute="trailing" secondItem="mcG-L8-H8V" secondAttribute="trailing" id="Dwu-bv-IUl"/>
+                            <constraint firstItem="mcG-L8-H8V" firstAttribute="leading" secondItem="0hB-Je-1ZA" secondAttribute="leading" id="E5S-aa-Uaa"/>
+                            <constraint firstItem="lhQ-g3-69d" firstAttribute="leading" secondItem="0hB-Je-1ZA" secondAttribute="leadingMargin" id="JPP-6k-hCB"/>
+                            <constraint firstItem="lhQ-g3-69d" firstAttribute="top" secondItem="Dcd-qv-SHK" secondAttribute="bottom" constant="26" id="KEk-b4-HY9"/>
+                            <constraint firstItem="eoD-6N-kTj" firstAttribute="top" secondItem="Dcd-qv-SHK" secondAttribute="bottom" constant="104" id="ZmG-Li-fYC"/>
+                            <constraint firstItem="D29-IN-CWf" firstAttribute="baseline" secondItem="lhQ-g3-69d" secondAttribute="firstBaseline" id="hzu-pA-v7W"/>
+                            <constraint firstItem="mcG-L8-H8V" firstAttribute="top" secondItem="eoD-6N-kTj" secondAttribute="bottom" constant="33" id="in5-gt-8aD"/>
+                            <constraint firstItem="mcG-L8-H8V" firstAttribute="bottom" secondItem="h6O-KX-m5B" secondAttribute="top" id="m2H-Ox-Jdi"/>
+                            <constraint firstItem="eoD-6N-kTj" firstAttribute="leading" secondItem="lhQ-g3-69d" secondAttribute="leading" id="p9j-D7-Bgk"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="3TS-eJ-TKB"/>
+                    <navigationItem key="navigationItem" title="Tracking Event" id="3TS-eJ-TKB"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="D29-IN-CWf" id="SFg-IA-tfO"/>
+                        <outlet property="eventLabel" destination="lhQ-g3-69d" id="d27-z5-w6m"/>
+                        <outlet property="eventLocationLabel" destination="eoD-6N-kTj" id="41u-Sr-KMS"/>
+                        <outlet property="eventMapView" destination="mcG-L8-H8V" id="by9-3F-P07"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clP-x5-Sxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="169"/>
+            <point key="canvasLocation" x="2184" y="183"/>
         </scene>
         <!--Add Package-->
         <scene sceneID="ilG-PK-1iu">
@@ -212,44 +255,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IY0-o7-7ul">
-                                <rect key="frame" x="92" y="115" width="253" height="30"/>
+                                <rect key="frame" x="92" y="142" width="253" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tracking Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O42-lW-1HF">
-                                <rect key="frame" x="92" y="86" width="132" height="21"/>
+                                <rect key="frame" x="92" y="113" width="132" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6e-WX-kWx">
-                                <rect key="frame" x="92" y="218" width="253" height="30"/>
+                                <rect key="frame" x="92" y="246" width="253" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hg0-5Y-Qc5">
-                                <rect key="frame" x="92" y="315" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eui-Ew-2OX">
+                                <rect key="frame" x="353" y="142" width="96" height="30"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-IA-hmI">
-                                <rect key="frame" x="88" y="286" width="46" height="21"/>
+                                <state key="normal" title="Scan Barcode"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="466-CS-DZX">
+                                <rect key="frame" x="92" y="217" width="115" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="466-CS-DZX">
-                                <rect key="frame" x="92" y="189" width="115" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="USPS" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RbC-mk-PZu">
+                                <rect key="frame" x="92" y="336" width="253" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shipping Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxd-5A-jGI">
+                                <rect key="frame" x="92" y="314" width="129" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -265,7 +311,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="notesArea" destination="hg0-5Y-Qc5" id="oNd-zl-Ko8"/>
                         <outlet property="packageNameField" destination="G6e-WX-kWx" id="bmI-Ay-0zW"/>
                         <outlet property="saveBtn" destination="Mxu-gs-d62" id="3Uh-o2-CMZ"/>
                         <outlet property="trackingNumberField" destination="IY0-o7-7ul" id="POo-5B-WG6"/>

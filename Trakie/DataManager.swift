@@ -74,7 +74,7 @@ class DataManager{
         
     }
     
-    func saveNewPackage(trackingNumber:String, name:String, notes:String?, svcType:ServiceType) throws{
+    func saveNewPackage(trackingNumber:String, name:String, svcType:ServiceType) throws{
         //1
         let appDelegate =
         UIApplication.sharedApplication().delegate as! AppDelegate

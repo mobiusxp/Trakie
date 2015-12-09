@@ -53,7 +53,7 @@ class PackageDetailTableVC: UITableViewController{
         // print("Section \(section)");
         switch section{
         case 0:
-            return 1;
+            return 2;
         case 1:
             if(selectedPackage!.valueForKey("notes") as? String != nil){
                 return 1;
@@ -78,8 +78,14 @@ class PackageDetailTableVC: UITableViewController{
         // Configure the cell...
         switch indexPath.section{
         case 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-            cell.textLabel!.text = selectedPackage!.valueForKey("trackingNumber") as? String;
+            let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath);
+            cell.selectionStyle = UITableViewCellSelectionStyle.None;
+            if(indexPath.row == 0){
+                cell.textLabel!.text = selectedPackage!.valueForKey("trackingNumber") as? String;
+            }else{
+                let selectedPackageType = ((selectedPackage! as! Package).svcType);
+                cell.textLabel!.text = ServiceType(rawValue: Int32(selectedPackageType!.integerValue))?.description;
+            }
             
             return cell;
         case 1:
