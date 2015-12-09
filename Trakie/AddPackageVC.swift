@@ -40,20 +40,20 @@ class AddPackageVC: UIViewController {
             
             do{
                 try dataManager.saveNewPackage(formattedNumber, name: packageNameField!.text!, notes: notesArea!.text!, svcType: ServiceType.USPS);
+                navigationController?.popViewControllerAnimated(true);
             }catch let e as ErrorType{
                 let alertController = UIAlertController(title: "Invalid Package", message:
-                    "This package is not in the USPS system. Please check your tracking number. \(e)", preferredStyle: UIAlertControllerStyle.Alert);
+                    "This package is not in the USPS system. Please check your tracking number.", preferredStyle: UIAlertControllerStyle.Alert);
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil));
                 
                 self.presentViewController(alertController, animated: true, completion: nil);
             }
             
-            navigationController?.popViewControllerAnimated(true);
         }else{
             let alertController = UIAlertController(title: "Invalid Tracking Number", message:
                 "This tracking number is invalid, please try again.", preferredStyle: UIAlertControllerStyle.Alert);
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil));
-            
+//            
             self.presentViewController(alertController, animated: true, completion: nil);
         }
 

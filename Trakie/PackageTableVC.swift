@@ -9,10 +9,11 @@
 import UIKit
 import CoreData
 
-class PackageTableVC: UITableViewController {
+class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet var packageTable: UITableView!
     var packages:[Package] = [];
+    var filteredPackages:[Package] = [Package]();
 
     override func viewDidLoad() {
         // print(packages[0].name);
@@ -39,20 +40,33 @@ class PackageTableVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if tableView == self.searchDisplayController!.searchResultsTableView{
+            return filteredPackages.count;
+        }else{
+            return packages.count;
+        }
+        
         return packages.count;
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("packageCell", forIndexPath: indexPath)
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("packageCell", forIndexPath: indexPath)
         
-        let package = packages[indexPath.row];
-        var packageEvents = package.valueForKey("events");
+        var package:Package;
+        if(tableView == self.searchDisplayController!.searchResultsTableView){
+            package = filteredPackages[indexPath.row];
+        }else{
+            package = packages[indexPath.row];
+        }
+        
+        let packageEvents = package.valueForKey("events");
         let lastEvent = packageEvents![0] as! TrackingEvent;
-        
+        cell.detailTextLabel?.text = "\(lastEvent.event!) - \(lastEvent.eventDate!) \(lastEvent.eventTime!)";
+
         // Configure the cell...
         cell.textLabel?.text = package.name!;
-        cell.detailTextLabel?.text = "\(lastEvent.event!) - \(lastEvent.eventDate!) \(lastEvent.eventTime!)";
+
 
         return cell
     }
@@ -136,6 +150,26 @@ class PackageTableVC: UITableViewController {
         
         // detailVC.parkIndex =  indexPath!.row;
         
+    }
+    
+    // MARK: - Search
+    func filterContentForSearchText(searchText: String) {
+        // Filter the array using the filter method
+        self.filteredPackages = self.packages.filter({( package: Package) -> Bool in
+            let stringMatch = package.name!.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch);
+            let trackMatch = package.trackingNumber!.rangeOfString(searchText);
+            return (trackMatch != nil) || (stringMatch != nil)
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!)
+        return true
     }
     
 

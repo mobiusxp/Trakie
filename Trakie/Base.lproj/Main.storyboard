@@ -14,17 +14,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="nK2-b4-QRG">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="Fhr-Nj-r0i">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
                             <connections>
-                                <outlet property="delegate" destination="zj4-40-amA" id="hYJ-IA-Nw0"/>
+                                <outlet property="delegate" destination="zj4-40-amA" id="7HG-Bo-cU9"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -77,18 +73,18 @@
                     <navigationItem key="navigationItem" title="Packages" id="GBH-8W-zjw"/>
                     <connections>
                         <outlet property="packageTable" destination="sKX-aV-Mgw" id="NQo-QS-5y7"/>
-                        <outlet property="searchDisplayController" destination="q7p-nn-LR9" id="oXy-oB-XdX"/>
+                        <outlet property="searchDisplayController" destination="GBF-Cb-qbI" id="iNg-5U-Q8R"/>
                         <outlet property="tableView" destination="sKX-aV-Mgw" id="WP1-xd-ZAg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMS-JL-7vL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="q7p-nn-LR9">
+                <searchDisplayController id="GBF-Cb-qbI">
                     <connections>
-                        <outlet property="delegate" destination="zj4-40-amA" id="Wdp-aI-XM4"/>
-                        <outlet property="searchBar" destination="nK2-b4-QRG" id="2I9-e8-oCj"/>
-                        <outlet property="searchContentsController" destination="zj4-40-amA" id="FFs-q1-q26"/>
-                        <outlet property="searchResultsDataSource" destination="zj4-40-amA" id="gIo-hv-j8f"/>
-                        <outlet property="searchResultsDelegate" destination="zj4-40-amA" id="OFB-JD-VzN"/>
+                        <outlet property="delegate" destination="zj4-40-amA" id="YtY-2v-bu0"/>
+                        <outlet property="searchBar" destination="Fhr-Nj-r0i" id="kPB-fo-PVK"/>
+                        <outlet property="searchContentsController" destination="zj4-40-amA" id="opk-cF-hVV"/>
+                        <outlet property="searchResultsDataSource" destination="zj4-40-amA" id="w4O-co-j9z"/>
+                        <outlet property="searchResultsDelegate" destination="zj4-40-amA" id="G9c-A3-kTZ"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -160,8 +156,15 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Title" id="NJU-FD-RIa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="eJJ-hw-cVV"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="eJJ-hw-cVV">
+                            <connections>
+                                <action selector="shareTapped:" destination="ixe-B2-fT9" id="Z6J-sy-h7B"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="shareButton" destination="eJJ-hw-cVV" id="qaa-ER-RwJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Baf-E7-TEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,6 +181,15 @@
                     <view key="view" contentMode="scaleToFill" id="0hB-Je-1ZA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tracking Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHb-DN-oIw">
+                                <rect key="frame" x="51" y="101" width="132" height="65"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

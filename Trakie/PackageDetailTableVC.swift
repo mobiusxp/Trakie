@@ -17,6 +17,7 @@ class PackageDetailTableVC: UITableViewController{
     var packageEvents:NSArray?;
     var sec1:[String]?
     var sec3:[String]?
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         self.title = selectedPackage!.valueForKey("name") as? String;
@@ -158,6 +159,26 @@ class PackageDetailTableVC: UITableViewController{
         self.presentViewController(deleteAlert, animated: true, completion: nil);
     }
 
+    @IBAction func shareTapped(sender: AnyObject) {
+        let textToShare = "\((selectedPackage as! Package).trackingNumber!)";
+        
+        if let myWebsite = NSURL(string: "http://www.codingexplorer.com/")
+        {
+            let objectsToShare = [textToShare, myWebsite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //New Excluded Activities Code
+            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList]
+            //
+            
+            if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone {
+                self.presentViewController(activityVC, animated: true, completion: nil);
+            }else{
+                let popup: UIPopoverController = UIPopoverController(contentViewController: activityVC)
+                popup.presentPopoverFromRect(CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 4, 0, 0), inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+            }
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

@@ -96,7 +96,7 @@ class DataManager{
         do{
             loadedPackage = try getData(package as! Package, source: ServiceType.USPS);
         }catch TrakieError.ParserError{
-            print("error caught");
+            // print("error caught");
             throw TrakieError.ParserError;
         }catch let vague as ErrorType{
             print("I write bad code \(vague)");
