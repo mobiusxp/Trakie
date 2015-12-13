@@ -20,7 +20,7 @@ class DataManager{
     func getData(input:Package, source:ServiceType) throws -> Package?{
         let retriever = RetrieverFactory().getRetriever(source);
         
-        
+        // print("call me");
         
         do{
             let toParse = try retriever.getData(input.trackingNumber!);
@@ -45,13 +45,40 @@ class DataManager{
     }
     
     
+    
     // Load the user's saved packages
     func loadUserList() -> [Package]{
         return [];
     }
     
-    
+    // update the packages
+    func updatePackages(packages:[Package]){
+        let oldPackages = packages;
+        
+        /*
+            I know this is probably the worst way to approach this but you know
+            Time constraints and stuff. Sorry!
+        */
+        
+        for package in oldPackages{
+            do{
+                let index = oldPackages.indexOf(package)!;
+                let trackingNumber = package.trackingNumber!;
+                let packageName = package.name!;
+                // let newPackage = try getData(package, source: ServiceType.USPS)!;
+                // print(newPackage);
+                deleteCDPackage(index);
+                try saveNewPackage(trackingNumber, name: "Zimzam", svcType: ServiceType.USPS);
+                // print(trackingNumber);
+                
 
+            }catch{
+                print("updateErrorCat.jpg");
+            }
+            
+        }
+
+    }
     
     // Load saved data
     func loadSaveData() -> [Package]{
@@ -111,6 +138,7 @@ class DataManager{
         }
 
     }
+    
     
     func saveNewTrackingEvent(toStore:TrackingEvent){
         let appDelegate =

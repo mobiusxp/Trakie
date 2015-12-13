@@ -20,6 +20,7 @@ class USPSParser: Parser{
     
     func parse(package: Package, input:String) throws -> Package {
         // let inputNSData = (input as NSString).dataUsingEncoding(NSUTF8StringEncoding);
+        // print(package);
         let parsed = SWXMLHash.parse(input);
         parsedPackage = package;
         if parsed["TrackResponse"]["TrackInfo"]["Error"].element != nil{
@@ -39,6 +40,7 @@ class USPSParser: Parser{
     
     // Take in the tracking number and create the package
     func makePackage(trackingNumber:String){
+        // print(trackingNumber);
         parsedPackage!.trackingNumber = trackingNumber;
         parsedPackage!.svcType = NSNumber(int:ServiceType.USPS.rawValue);
     }

@@ -19,19 +19,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // checkFavorites();
+        // checkPackages();
         dm = DataManager();
         packageController = (self.window?.rootViewController as! UINavigationController).topViewController as? PackageTableVC;
+        
+        // Get directory for coredata store
+        // let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        // print(paths[0])
+        
+        
+        
         packages = dm!.loadSaveData();
+        if(packages != nil){
+            dm!.updatePackages(packages!);
+            // packageController!.tableView!.reloadData();
+        }
         // packages!.append(dm!.testUSPS());
         packageController!.packages = packages!;
+        
+
         // Override point for customization after application launch.
         return true
     }
     
     
     // Check NSUserDefaults for the array
-    func checkFavorites(){
+    func checkPackages(){
         var array = NSUserDefaults.standardUserDefaults().arrayForKey("packages") as? [String]
         if array != nil {
             
@@ -61,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // dm!.updatePackages(packages!);
     }
 
     func applicationWillTerminate(application: UIApplication) {

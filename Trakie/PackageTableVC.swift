@@ -26,6 +26,15 @@ class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDispla
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    @IBAction func updateList(sender: AnyObject) {
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate;
+        let dm = appDelegate.dm!;
+        dm.updatePackages(packages);
+        packages = appDelegate.packages!;
+        packageTable.reloadData();
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,7 +55,7 @@ class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDispla
             return packages.count;
         }
         
-        return packages.count;
+        // return packages.count;
     }
 
     
@@ -127,7 +136,7 @@ class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDispla
             // print("You tapped \(indexPath)");
             
             var selectedPackage:Package;
-            print(sender);
+            // print(sender);
             // get the name of the Park
             
             if  self.searchDisplayController!.active{
