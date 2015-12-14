@@ -129,7 +129,11 @@ class DataManager{
             insertIntoManagedObjectContext: managedContext)
         
         //3
-        package.setValue(name, forKey: "name")
+        if name.isEmpty{
+            package.setValue(trackingNumber, forKey: "name");
+        }else{
+            package.setValue(name, forKey: "name");
+        }
         package.setValue(trackingNumber, forKey: "trackingNumber");
         package.setValue(NSInteger(svcType.rawValue), forKey: "svcType");
         var loadedPackage:Package?;

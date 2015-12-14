@@ -27,15 +27,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         // print(paths[0])
         
-        
-        
-        packages = dm!.loadSaveData();
-        if(packages != nil){
-            dm!.updatePackages(packages!);
-            // packageController!.tableView!.reloadData();
+        if Reachability.isConnectedToNetwork() == true {
+            
+            packages = dm!.loadSaveData();
+            if(packages != nil){
+                dm!.updatePackages(packages!);
+                // packageController!.tableView!.reloadData();
+            }
+            // packages!.append(dm!.testUSPS());
+            packageController!.packages = packages!;
+        }else {
+            let vc : AnyObject! = (self.window?.rootViewController as! UINavigationController).storyboard!.instantiateViewControllerWithIdentifier("nointernet");
+            (self.window?.rootViewController as! UINavigationController).showViewController(vc as! UIViewController, sender: vc);
+            /*
+            let alertController = UIAlertController(title: "No Internet", message:
+            "You do not have an active internet connection. This app requires an internet connection.", preferredStyle: UIAlertControllerStyle.Alert);
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil));
+            
+            (self.window?.rootViewController as! UINavigationController).visibleViewController!.presentViewController(alertController, animated: true, completion: nil);
+            */
         }
-        // packages!.append(dm!.testUSPS());
-        packageController!.packages = packages!;
         
 
         // Override point for customization after application launch.

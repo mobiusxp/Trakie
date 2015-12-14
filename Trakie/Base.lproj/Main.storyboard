@@ -378,5 +378,55 @@
             </objects>
             <point key="canvasLocation" x="-105" y="169"/>
         </scene>
+        <!--No InternetVC-->
+        <scene sceneID="ew9-r7-Gpz">
+            <objects>
+                <viewController storyboardIdentifier="nointernet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpc-ff-4Ia" customClass="NoInternetVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F9R-5k-ch3"/>
+                        <viewControllerLayoutGuide type="bottom" id="W4d-8K-US2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Jb-4e-1wf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no internet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b63-fG-DIg">
+                                <rect key="frame" x="222" y="289" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need internet to work." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbL-LW-3Zk">
+                                <rect key="frame" x="212" y="318" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please close the app, renable internet, and try again." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j21-iX-0Zd">
+                                <rect key="frame" x="71" y="477" width="458" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="4Xi-dp-gwc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b63-fG-DIg" firstAttribute="centerY" secondItem="8Jb-4e-1wf" secondAttribute="centerY" id="6xk-GY-AdH"/>
+                            <constraint firstItem="j21-iX-0Zd" firstAttribute="leading" secondItem="8Jb-4e-1wf" secondAttribute="leadingMargin" constant="51" id="Cp1-cS-0Kl"/>
+                            <constraint firstItem="QbL-LW-3Zk" firstAttribute="centerX" secondItem="b63-fG-DIg" secondAttribute="centerX" id="LDa-hZ-zJW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j21-iX-0Zd" secondAttribute="trailing" constant="51" id="W9d-mp-P2Z"/>
+                            <constraint firstItem="QbL-LW-3Zk" firstAttribute="top" secondItem="b63-fG-DIg" secondAttribute="bottom" constant="8" symbolic="YES" id="e20-uv-rZE"/>
+                            <constraint firstItem="b63-fG-DIg" firstAttribute="centerX" secondItem="8Jb-4e-1wf" secondAttribute="centerX" id="gLb-nM-CZr"/>
+                            <constraint firstAttribute="bottom" secondItem="j21-iX-0Zd" secondAttribute="bottom" constant="57" id="swt-Bk-Aad"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oM9-ZB-9xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146" y="870"/>
+        </scene>
     </scenes>
 </document>

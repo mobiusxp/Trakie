@@ -20,9 +20,10 @@
 		73064B251C12A2E300CDD480 /* TrakieErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B241C12A2E300CDD480 /* TrakieErrors.swift */; };
 		73064B271C12B83C00CDD480 /* SampleResponses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 73064B261C12B83C00CDD480 /* SampleResponses.txt */; };
 		73064B2B1C12C0E300CDD480 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73064B2A1C12C0E300CDD480 /* SWXMLHash.swift */; };
+		7313665B1C1E84CE005D208E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7313665A1C1E84CE005D208E /* Reachability.swift */; };
+		7313665D1C1E8A18005D208E /* NoInternetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7313665C1C1E8A18005D208E /* NoInternetVC.swift */; };
 		731D54EA1C150E6B0048C7B4 /* TrakieModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 731D54E81C150E6B0048C7B4 /* TrakieModel.xcdatamodeld */; };
 		738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CB1C0F864800F3A3A1 /* AppDelegate.swift */; };
-		738691CE1C0F864800F3A3A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738691CD1C0F864800F3A3A1 /* ViewController.swift */; };
 		738691D11C0F864800F3A3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691CF1C0F864800F3A3A1 /* Main.storyboard */; };
 		738691D31C0F864800F3A3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 738691D21C0F864800F3A3A1 /* Assets.xcassets */; };
 		738691D61C0F864800F3A3A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738691D41C0F864800F3A3A1 /* LaunchScreen.storyboard */; };
@@ -56,10 +57,11 @@
 		73064B241C12A2E300CDD480 /* TrakieErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrakieErrors.swift; sourceTree = "<group>"; };
 		73064B261C12B83C00CDD480 /* SampleResponses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SampleResponses.txt; sourceTree = "<group>"; };
 		73064B2A1C12C0E300CDD480 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		7313665A1C1E84CE005D208E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		7313665C1C1E8A18005D208E /* NoInternetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetVC.swift; sourceTree = "<group>"; };
 		731D54E91C150E6B0048C7B4 /* TrakieModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrakieModel.xcdatamodel; sourceTree = "<group>"; };
 		738691C81C0F864800F3A3A1 /* Trakie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trakie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738691CB1C0F864800F3A3A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		738691CD1C0F864800F3A3A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		738691D01C0F864800F3A3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		738691D21C0F864800F3A3A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		738691D51C0F864800F3A3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,7 +172,6 @@
 				738691DE1C0F86C400F3A3A1 /* Model */,
 				738691DD1C0F86B700F3A3A1 /* ViewControllers */,
 				738691CB1C0F864800F3A3A1 /* AppDelegate.swift */,
-				738691CD1C0F864800F3A3A1 /* ViewController.swift */,
 				73064B061C12100F00CDD480 /* DataManager.swift */,
 				73064B051C11ECDC00CDD480 /* Retrievers */,
 				738691CF1C0F864800F3A3A1 /* Main.storyboard */,
@@ -179,6 +180,7 @@
 				738691D71C0F864800F3A3A1 /* Info.plist */,
 				73064B2A1C12C0E300CDD480 /* SWXMLHash.swift */,
 				731D54E81C150E6B0048C7B4 /* TrakieModel.xcdatamodeld */,
+				7313665A1C1E84CE005D208E /* Reachability.swift */,
 			);
 			path = Trakie;
 			sourceTree = "<group>";
@@ -191,6 +193,7 @@
 				73B54D111C1403060033D3EF /* PackageDetailTableVC.swift */,
 				73B54D131C1403530033D3EF /* TrackingEventVC.swift */,
 				73C1276B1C1E699100DEC0EB /* ScannerVC.swift */,
+				7313665C1C1E8A18005D208E /* NoInternetVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -300,13 +303,14 @@
 				73C8B51B1C1570EC00BBB587 /* TrackingEvent+CoreDataProperties.swift in Sources */,
 				73064B071C12100F00CDD480 /* DataManager.swift in Sources */,
 				73B0A0C31C10953800C1AA45 /* PackageTableVC.swift in Sources */,
-				738691CE1C0F864800F3A3A1 /* ViewController.swift in Sources */,
+				7313665B1C1E84CE005D208E /* Reachability.swift in Sources */,
 				73064B0C1C12111500CDD480 /* USPSRetriever.swift in Sources */,
 				738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */,
 				73064B141C1234EC00CDD480 /* Parser.swift in Sources */,
 				73C1276C1C1E699100DEC0EB /* ScannerVC.swift in Sources */,
 				73064B181C12426400CDD480 /* LocalParser.swift in Sources */,
 				73A625791C177CAB002225A8 /* Validator.swift in Sources */,
+				7313665D1C1E8A18005D208E /* NoInternetVC.swift in Sources */,
 				73C8B51C1C1570EC00BBB587 /* Package+CoreDataProperties.swift in Sources */,
 				73064B2B1C12C0E300CDD480 /* SWXMLHash.swift in Sources */,
 				73064B1A1C12463C00CDD480 /* ParserFactory.swift in Sources */,
