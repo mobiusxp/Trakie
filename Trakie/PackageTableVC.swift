@@ -70,7 +70,7 @@ class PackageTableVC: UITableViewController, UISearchBarDelegate, UISearchDispla
         }
         
         let packageEvents = package.valueForKey("events");
-        let lastEvent = packageEvents![0] as! TrackingEvent;
+        let lastEvent = packageEvents!.objectAtIndex(0) as! TrackingEvent;
         cell.detailTextLabel?.text = "\(lastEvent.event!) - \(lastEvent.eventDate!) \(lastEvent.eventTime!)";
 
         // Configure the cell...

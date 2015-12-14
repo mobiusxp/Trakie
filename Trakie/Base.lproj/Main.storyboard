@@ -241,45 +241,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IY0-o7-7ul">
-                                <rect key="frame" x="92" y="142" width="253" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IY0-o7-7ul">
+                                <rect key="frame" x="174" y="142" width="253" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="253" id="czr-RC-b5L"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tracking Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O42-lW-1HF">
-                                <rect key="frame" x="92" y="113" width="132" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O42-lW-1HF">
+                                <rect key="frame" x="174" y="113" width="132" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6e-WX-kWx">
-                                <rect key="frame" x="92" y="246" width="253" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6e-WX-kWx">
+                                <rect key="frame" x="174" y="260" width="253" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eui-Ew-2OX">
-                                <rect key="frame" x="353" y="142" width="96" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eui-Ew-2OX">
+                                <rect key="frame" x="174" y="179" width="96" height="30"/>
                                 <state key="normal" title="Scan Barcode"/>
+                                <connections>
+                                    <segue destination="OcX-1z-CrC" kind="show" id="nv1-Bx-xta"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="466-CS-DZX">
-                                <rect key="frame" x="92" y="217" width="115" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="466-CS-DZX">
+                                <rect key="frame" x="174" y="231" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="USPS" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RbC-mk-PZu">
-                                <rect key="frame" x="92" y="336" width="253" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxd-5A-jGI">
+                                <rect key="frame" x="174" y="333" width="129" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="USPS" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RbC-mk-PZu">
+                                <rect key="frame" x="174" y="362" width="253" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shipping Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxd-5A-jGI">
-                                <rect key="frame" x="92" y="314" width="129" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RbC-mk-PZu" firstAttribute="top" secondItem="Vxd-5A-jGI" secondAttribute="bottom" constant="8" symbolic="YES" id="10C-c9-sQS"/>
+                            <constraint firstItem="eui-Ew-2OX" firstAttribute="top" secondItem="IY0-o7-7ul" secondAttribute="bottom" constant="7" id="6TL-3P-klu"/>
+                            <constraint firstItem="466-CS-DZX" firstAttribute="leading" secondItem="G6e-WX-kWx" secondAttribute="leading" id="CIa-oe-IZg"/>
+                            <constraint firstItem="RbC-mk-PZu" firstAttribute="trailing" secondItem="G6e-WX-kWx" secondAttribute="trailing" id="GW0-FW-8Mt"/>
+                            <constraint firstItem="G6e-WX-kWx" firstAttribute="centerX" secondItem="48i-RB-bSC" secondAttribute="centerX" id="GsN-OK-BEC"/>
+                            <constraint firstItem="O42-lW-1HF" firstAttribute="leading" secondItem="IY0-o7-7ul" secondAttribute="leading" id="KqR-VZ-T14"/>
+                            <constraint firstItem="eui-Ew-2OX" firstAttribute="leading" secondItem="IY0-o7-7ul" secondAttribute="leading" id="R7Y-lW-Xpn"/>
+                            <constraint firstItem="Vxd-5A-jGI" firstAttribute="top" secondItem="G6e-WX-kWx" secondAttribute="bottom" constant="43" id="V4x-HK-X8f"/>
+                            <constraint firstItem="G6e-WX-kWx" firstAttribute="leading" secondItem="Vxd-5A-jGI" secondAttribute="leading" id="ar6-l1-Cs4"/>
+                            <constraint firstItem="G6e-WX-kWx" firstAttribute="top" secondItem="466-CS-DZX" secondAttribute="bottom" constant="8" symbolic="YES" id="ekK-5e-f0d"/>
+                            <constraint firstItem="G6e-WX-kWx" firstAttribute="trailing" secondItem="IY0-o7-7ul" secondAttribute="trailing" id="hzE-95-Rp8"/>
+                            <constraint firstItem="IY0-o7-7ul" firstAttribute="top" secondItem="O42-lW-1HF" secondAttribute="bottom" constant="8" symbolic="YES" id="o5j-LW-iRA"/>
+                            <constraint firstItem="466-CS-DZX" firstAttribute="top" secondItem="eui-Ew-2OX" secondAttribute="bottom" constant="22" id="slM-ay-hjc"/>
+                            <constraint firstItem="466-CS-DZX" firstAttribute="leading" secondItem="eui-Ew-2OX" secondAttribute="leading" id="ths-pP-TMK"/>
+                            <constraint firstItem="Vxd-5A-jGI" firstAttribute="leading" secondItem="RbC-mk-PZu" secondAttribute="leading" id="wVu-P5-FwH"/>
+                            <constraint firstItem="O42-lW-1HF" firstAttribute="top" secondItem="Wgf-tt-7b7" secondAttribute="bottom" constant="49" id="zBx-Vb-iDm"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Package" id="7Z0-S7-xJS">
@@ -298,6 +322,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cu5-Aw-BeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="707" y="1075"/>
+        </scene>
+        <!--Scan Barcode-->
+        <scene sceneID="roI-Nm-3Ok">
+            <objects>
+                <viewController id="OcX-1z-CrC" customClass="ScannerVC" customModule="Trakie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nbP-NX-jZG"/>
+                        <viewControllerLayoutGuide type="bottom" id="M7c-qg-D5B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wdc-kE-7Xs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jp4-El-3Yb">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jp4-El-3Yb" firstAttribute="leading" secondItem="Wdc-kE-7Xs" secondAttribute="leading" id="1zr-5u-uem"/>
+                            <constraint firstItem="Jp4-El-3Yb" firstAttribute="bottom" secondItem="M7c-qg-D5B" secondAttribute="top" id="5uc-Lj-pBy"/>
+                            <constraint firstAttribute="trailing" secondItem="Jp4-El-3Yb" secondAttribute="trailing" id="HOp-ZU-tgP"/>
+                            <constraint firstItem="Jp4-El-3Yb" firstAttribute="top" secondItem="nbP-NX-jZG" secondAttribute="bottom" id="tRc-e3-CPP"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="e1s-2G-AYW"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Scan Barcode" id="oOk-a5-VG1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pj0-tz-286" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429" y="1075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="89J-I0-D34">

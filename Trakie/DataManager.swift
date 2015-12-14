@@ -54,29 +54,42 @@ class DataManager{
     // update the packages
     func updatePackages(packages:[Package]){
         let oldPackages = packages;
+        // print(oldPackages.count);
+        var oldPackageData:[(String,String)] = [];
         
         /*
             I know this is probably the worst way to approach this but you know
             Time constraints and stuff. Sorry!
         */
         
+        // Record the essential package data into tuples
         for package in oldPackages{
-            do{
-                let index = oldPackages.indexOf(package)!;
-                let trackingNumber = package.trackingNumber!;
-                let packageName = package.name!;
-                // let newPackage = try getData(package, source: ServiceType.USPS)!;
-                // print(newPackage);
-                deleteCDPackage(index);
-                try saveNewPackage(trackingNumber, name: "Zimzam", svcType: ServiceType.USPS);
-                // print(trackingNumber);
-                
-
-            }catch{
-                print("updateErrorCat.jpg");
-            }
+            oldPackageData.append((package.trackingNumber!, package.name!));
+        }
+        
+        // Delete all entries from core data
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        let fetchRequest = NSFetchRequest(entityName: "Package");
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest);
+        let managedContext = appDelegate.managedObjectContext
+        do {
+            try managedContext.executeRequest(deleteRequest);
+            appDelegate.packages! = [];
+        } catch let error as NSError {
             
         }
+        
+        // Build new packages based on the tuples
+        for data in oldPackageData{
+            do{
+            try saveNewPackage(data.0, name: data.1, svcType: ServiceType.USPS);
+            }catch{
+                
+            }
+        }
+        
+        
 
     }
     

@@ -11,6 +11,8 @@ import MapKit;
 
 class TrackingEventVC: UIViewController {
     
+    var event:TrackingEvent?;
+    
     @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var eventLocationLabel: UILabel!
@@ -19,11 +21,11 @@ class TrackingEventVC: UIViewController {
     
     override func viewDidLoad() {
         
-        eventLabel!.text = "AKLSJDKALJSDLKAJsklDJASKLJDKLASJD:LKASJKDLJASL:DJASKLDJLASJDKS";
+        eventLabel!.text = "\(event!.event!)";
         eventLabel!.adjustsFontSizeToFitWidth = true;
         
-        dateLabel!.text = "January 01, 1970 04:55pm";
-        eventLocationLabel!.text = "Baltimore, MD";
+        dateLabel!.text = "\(event!.eventDate!) \(event!.eventTime!)";
+        eventLocationLabel!.text = "\(event!.eventCity!) , \(event!.eventState!)";
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

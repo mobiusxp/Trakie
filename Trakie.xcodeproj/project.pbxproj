@@ -33,6 +33,9 @@
 		73B0A0C31C10953800C1AA45 /* PackageTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */; };
 		73B54D121C1403060033D3EF /* PackageDetailTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B54D111C1403060033D3EF /* PackageDetailTableVC.swift */; };
 		73B54D141C1403530033D3EF /* TrackingEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B54D131C1403530033D3EF /* TrackingEventVC.swift */; };
+		73C127681C1E65A200DEC0EB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C127671C1E65A200DEC0EB /* CoreLocation.framework */; };
+		73C1276A1C1E65CB00DEC0EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C127691C1E65CB00DEC0EB /* AVFoundation.framework */; };
+		73C1276C1C1E699100DEC0EB /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C1276B1C1E699100DEC0EB /* ScannerVC.swift */; };
 		73C8B5161C15648200BBB587 /* TrackingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B5121C15648200BBB587 /* TrackingEvent.swift */; };
 		73C8B5181C15648200BBB587 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B5141C15648200BBB587 /* Package.swift */; };
 		73C8B51B1C1570EC00BBB587 /* TrackingEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8B5191C1570EC00BBB587 /* TrackingEvent+CoreDataProperties.swift */; };
@@ -68,6 +71,9 @@
 		73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTableVC.swift; sourceTree = "<group>"; };
 		73B54D111C1403060033D3EF /* PackageDetailTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDetailTableVC.swift; sourceTree = "<group>"; };
 		73B54D131C1403530033D3EF /* TrackingEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingEventVC.swift; sourceTree = "<group>"; };
+		73C127671C1E65A200DEC0EB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		73C127691C1E65CB00DEC0EB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		73C1276B1C1E699100DEC0EB /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		73C8B5121C15648200BBB587 /* TrackingEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingEvent.swift; sourceTree = "<group>"; };
 		73C8B5141C15648200BBB587 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		73C8B5191C1570EC00BBB587 /* TrackingEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -79,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73C1276A1C1E65CB00DEC0EB /* AVFoundation.framework in Frameworks */,
+				73C127681C1E65A200DEC0EB /* CoreLocation.framework in Frameworks */,
 				73A27F511C1890810079F1FC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +143,8 @@
 		738691BF1C0F864800F3A3A1 = {
 			isa = PBXGroup;
 			children = (
+				73C127691C1E65CB00DEC0EB /* AVFoundation.framework */,
+				73C127671C1E65A200DEC0EB /* CoreLocation.framework */,
 				73A27F501C1890810079F1FC /* MapKit.framework */,
 				73064B261C12B83C00CDD480 /* SampleResponses.txt */,
 				738691E21C0FA1C200F3A3A1 /* .gitignore */,
@@ -180,6 +190,7 @@
 				73B0A0C21C10953800C1AA45 /* PackageTableVC.swift */,
 				73B54D111C1403060033D3EF /* PackageDetailTableVC.swift */,
 				73B54D131C1403530033D3EF /* TrackingEventVC.swift */,
+				73C1276B1C1E699100DEC0EB /* ScannerVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +304,7 @@
 				73064B0C1C12111500CDD480 /* USPSRetriever.swift in Sources */,
 				738691CC1C0F864800F3A3A1 /* AppDelegate.swift in Sources */,
 				73064B141C1234EC00CDD480 /* Parser.swift in Sources */,
+				73C1276C1C1E699100DEC0EB /* ScannerVC.swift in Sources */,
 				73064B181C12426400CDD480 /* LocalParser.swift in Sources */,
 				73A625791C177CAB002225A8 /* Validator.swift in Sources */,
 				73C8B51C1C1570EC00BBB587 /* Package+CoreDataProperties.swift in Sources */,
